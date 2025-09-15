@@ -18,47 +18,43 @@ public class Main {
         return Math.sqrt(s2 / (xs.size() - 1));
     }
 
-    private static void rodarExperimento(String rotulo, int mCaixas, int N, double mu, double sigma, int rodadas) {
-        List<Double> medias = new ArrayList<>();
+    private static void rodar(String rotulo, int nRodadas, int nClientes, int nCaixas, double mu, double sigma) {
+        SimulacaoCaixaSupermercado sim = new SimulacaoCaixaSupermercado();
+        sim.setNClientes(nClientes);
+        sim.setNumeroCaixas(nCaixas); 
+        sim.setMu(mu);
+        sim.setSigma(sigma);
 
-        for (int r = 0; r < rodadas; r++) {
-            SimulacaoCaixaSupermercado sim = new SimulacaoCaixaSupermercado(42L + r);
-            sim.setNumeroCaixas(mCaixas);
-            sim.setQuantidadeClientes(N);
-            sim.setMediaTempoAtendimento(mu);
-            sim.setDesvioPadraoTempoAtendimento(sigma);
+        List<Double> mediasDasRodadas = new ArrayList<>();
 
-            double mediaRodada = sim.simularMediaTempoNoSistema();
-            medias.add(mediaRodada);
+        for (int i = 0; i < nRodadas; i++) {
+            double m = sim.simular();             
+            mediasDasRodadas.add(m);
         }
 
-        double m = media(medias);
-        double dp = desvioPadrao(medias, m);
-        System.out.printf("%s -> média: %.3f min | desvio-padrão das médias: %.3f min (rodadas=%d)%n",
-                rotulo, m, dp, rodadas);
+        double mFinal = media(mediasDasRodadas);         
+        double dpFinal = desvioPadrao(mediasDasRodadas, mFinal);
+
+        System.out.printf("%s%n", rotulo);
+        System.out.printf("  media_das_medias  ~ %.4f min%n", mFinal);
+        System.out.printf("  dp_das_medias     ~ %.4f min%n%n", dpFinal);
     }
 
     public static void main(String[] args) {
-        final int RODADAS = 1000;
+        final int RODADAS  = 1000;
+        final int N        = 100;
+        final double MU    = 5.0;
+        final double SIGMA = 0.5;
+   
+        rodar("Item 1: mu=5.0, sigma=0.5, N=100, rodadas=1000, caixas=1",
+                RODADAS, N, 1, MU, SIGMA);
 
-        // 1) μ = 5.0, σ = 0.5, N=100, m=1
-        rodarExperimento("Item 1: m=1, N=100, μ=5.0, σ=0.5",
-                1, 100, 5.0, 0.5, RODADAS);
+        rodar("Item 2.1: caixas=1 (mesmos params)", RODADAS, N, 1, MU, SIGMA);
+        rodar("Item 2.2: caixas=2 (mesmos params)", RODADAS, N, 2, MU, SIGMA);
+        rodar("Item 2.3: caixas=3 (mesmos params)", RODADAS, N, 3, MU, SIGMA);
 
-        // 2) variar número de caixas: 1, 2, 3 (mesmos N, μ, σ)
-        rodarExperimento("Item 2: m=1, N=100, μ=5.0, σ=0.5",
-                1, 100, 5.0, 0.5, RODADAS);
-        rodarExperimento("Item 2: m=2, N=100, μ=5.0, σ=0.5",
-                2, 100, 5.0, 0.5, RODADAS);
-        rodarExperimento("Item 2: m=3, N=100, μ=5.0, σ=0.5",
-                3, 100, 5.0, 0.5, RODADAS);
-
-        // 3) variar σ: 0.25, 1.0, 2.0 (fixando m=1, N=100, μ=5.0)
-        rodarExperimento("Item 3: m=1, N=100, μ=5.0, σ=0.25",
-                1, 100, 5.0, 0.25, RODADAS);
-        rodarExperimento("Item 3: m=1, N=100, μ=5.0, σ=1.0",
-                1, 100, 5.0, 1.0, RODADAS);
-        rodarExperimento("Item 3: m=1, N=100, μ=5.0, σ=2.0",
-                1, 100, 5.0, 2.0, RODADAS);
+        rodar("Item 3.1: mu=5.0, sigma=0.25, N=100", RODADAS, N, 1, 5.0, 0.25);
+        rodar("Item 3.2: mu=5.0, sigma=1.0 , N=100", RODADAS, N, 1, 5.0, 1.0);
+        rodar("Item 3.3: mu=5.0, sigma=2.0 , N=100", RODADAS, N, 1, 5.0, 2.0);
     }
 }

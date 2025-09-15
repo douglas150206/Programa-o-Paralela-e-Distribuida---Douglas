@@ -1,30 +1,16 @@
-# Relatório – Simulação de Atendimento em Caixa de Supermercado
+# Resultados da Simulação
 
-### 1) Resultados iniciais
-A simulação com μ = 5,0, σ = 0,5, N = 100 e 1000 rodadas deu como resultado:  
-- Média ≈ 252,9 minutos  
-- Desvio-padrão ≈ 2,8 minutos  
+## 1) Cenário padrão
+Rodei a simulação com **mu = 5,0**, **sigma = 0,5**, **N = 100** e **1000 rodadas**.  
+A **média das médias** ficou perto de **5 minutos** e o **desvio das médias** ficou por volta de **0,05 min**.Ou seja, os resultados ficam bem concentrados perto do valor esperado.
 
----
+## 2) Número de caixas (1, 2 e 3)
+Troquei o número de caixas, mas **nesta versão do código isso ainda não muda a conta** (o campo existe, só não afeta o cálculo).  
+Mesmo assim, a ideia por trás é simples: **mais caixas é igual ao atendimento em paralelo e filas menores**, então quando o modelo considerar filas a tendência é os tempos médios caírem.
 
-### 2) Variação do número de caixas
-Quando usei 1 caixa o tempo médio ficou em torno de 252 minutos.  
-Com 2 caixas caiu para cerca de 127 minutos.  
-Com 3 caixas diminuiu ainda mais, para perto de 86 minutos.  
+## 3) Testes com sigma (0,25; 1,0; 2,0)
+Quando aumentei o **sigma**, a **média** continuou próxima de 5 min, mas o **desvio** das médias **cresceu** (faz sentido, visto que mais variabilidade no atendimento individual acarreta em resultados mais espalhados entre rodadas).
 
-Ou seja, quanto mais caixas, menor o tempo médio de atendimento, pois os clientes são atendidos em paralelo. O ganho é bem grande de 1 para 2 caixas, e um pouco menor de 2 para 3.
-
----
-
-### 3) Variação de σ
-Com σ = 0,25 o tempo médio ficou próximo de 252,7 minutos, com pouca variação.  
-Com σ = 1,0 subiu levemente para 253,3 minutos e o desvio aumentou bastante.  
-Com σ = 2,0 chegou a 254,5 minutos, e a variação entre rodadas ficou bem maior.  
-
-Isso mostra que quanto maior o desvio padrão, maior a incerteza e a variabilidade dos resultados.
-
----
-
-### 4) Por que o simulador é estocástico?
-O simulador é estocástico porque os tempos de atendimento são sorteados de forma aleatória.  
-Por isso, cada simulação dá um resultado um pouco diferente. Isso é parecido com a vida real, já que cada cliente demora tempos diferentes no caixa, dependendo da quantidade de compras e de imprevistos.
+## 4) Por que é estocástico?
+É estocástico porque os tempos de atendimento são **sorteados** de uma distribuição normal.  
+Mesmo com os mesmos parâmetros, cada execução dá números um pouco diferentes, o que parece com a vida real, ou seja, cada cliente leva um tempo diferente no caixa.
