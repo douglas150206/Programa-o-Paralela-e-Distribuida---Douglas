@@ -1,139 +1,131 @@
 # Questão 2 — Síntese do artigo "Governança digital: uma estratégia para o sucesso da transformação digital na educação pública federal"
 
-> **Referência:** *Governança digital: uma estratégia para o sucesso da transformação digital na
-> educação pública federal.* Revista Sítio Novo, Palmas, v. 9, e1795, 2025. e-ISSN: 2594-7036. 20 p.
-> Disponível em: <https://sitionovo.ifto.edu.br/index.php/sitionovo/article/view/1795>.
-
-> ⚠️ **Leia a nota de status no fim deste arquivo antes de entregar.** Não consegui baixar o PDF
-> completo do artigo (o domínio da revista está bloqueado pela política de rede desta sessão), então
-> esta síntese foi escrita a partir do resumo oficial e dos metadados da publicação. O conteúdo
-> abaixo é fiel ao que está publicado, mas está mais curto que as 2 páginas pedidas e não cobre o
-> detalhamento do corpo do artigo.
+> **Referência:** CARDOSO, Fabiana Ferreira; MOREIRA, Kleyton Matos; PARENTE, Ronaldo Vasconcelos.
+> **Governança digital: uma estratégia para o sucesso da transformação digital na educação pública
+> federal.** Revista Sítio Novo, Palmas, v. 9, e1795, 2025. e-ISSN 2594-7036.
+> DOI: 10.47236/2594-7036.2025.v9.1795.
+> Os três autores são Analistas de Tecnologia da Informação do Instituto Federal do Tocantins (IFTO).
 
 ---
 
-## 1. Contexto e problema
+## 1. Problema e contexto
 
-O artigo parte de um diagnóstico conhecido do setor público brasileiro: a **baixa maturidade em
-governança de Tecnologia da Informação** nas organizações públicas. Esse problema, segundo os
-autores, é **agravado nas Instituições Federais de Ensino (IFEs)** por um conjunto de condições
-próprias dessas instituições:
+O artigo trata da **maturidade em governança digital (GD) como fator crítico para o sucesso da
+transformação digital nas Instituições Federais de Ensino (IFEs)**. O problema investigado é a baixa
+maturidade da governança de TI nas organizações públicas, agravada nas IFEs por três condições
+próprias: a **descentralização multicampi**, as **restrições orçamentárias** e a **escassez de
+profissionais qualificados**.
 
-- a **descentralização multicampi**, que espalha decisões, equipes e infraestrutura por unidades
-  geograficamente distantes e com realidades diferentes;
-- as **restrições orçamentárias** típicas da administração pública federal;
-- a **escassez de profissionais** especializados em TI, tanto em quantidade quanto em qualificação.
+O diagnóstico não é uma impressão dos autores: o **IESGO 2024**, do TCU, mostrou que, das **387
+organizações avaliadas, quase metade está em estágio inicial de maturidade** nas práticas de
+governança de TI. Do outro lado da equação está a exigência normativa — o Sistema Nacional para a
+Transformação Digital (2018) e, sobretudo, a **Estratégia Federal de Governo Digital (EFGD)
+2024–2027**, instituída pelo Decreto nº 12.198/2024, com **6 princípios, 16 objetivos e 93
+iniciativas**. Existe, portanto, uma distância entre o que se cobra das IFEs e a maturidade que elas
+efetivamente têm.
 
-Esse cenário cria uma tensão direta com o que o Estado brasileiro vem exigindo dessas mesmas
-instituições: a **Estratégia Federal de Governo Digital (EFGD)** estabelece diretrizes de
-transformação digital que pressupõem justamente aquilo que falta — estrutura de governança,
-políticas institucionalizadas, processos formalizados e capacidade de execução.
+Os autores identificam ainda uma **lacuna de pesquisa**: embora existam frameworks consolidados
+(COBIT 2019, ITIL 4 e a norma ABNT NBR ISO/IEC 38500), há escassez de estudos que os **adaptem às
+especificidades das IFEs**. Aplicá-los isoladamente, alertam, gera sobreposições conceituais e
+dificuldades de integração operacional — os três tratam de segurança da informação e gestão de
+riscos, criando redundâncias caras para instituições com poucos recursos.
 
-## 2. Justificativa
+## 2. Objetivo
 
-A pesquisa se justifica pela **necessidade de adaptar frameworks consolidados de governança às
-especificidades das IFEs**. Os modelos de referência amplamente usados no mercado (e mesmo os
-referenciais do setor público) não foram concebidos considerando a realidade multicampi, o regime
-orçamentário e as limitações de pessoal de uma instituição federal de ensino. Aplicá-los "como
-estão" tende a produzir documentos de gaveta em vez de governança efetiva. Daí a proposta de
-construir e avaliar uma solução **ajustada a esse contexto e alinhada às diretrizes da EFGD**.
+Analisar criticamente a **implementação de um modelo de governança digital adaptado ao setor
+educacional público federal** e sua contribuição para elevar a maturidade organizacional das IFEs.
+A pergunta de pesquisa é direta: *como as IFEs brasileiras podem elevar seu nível de maturidade em
+governança digital?*
 
-## 3. Objetivo
+## 3. Metodologia
 
-O objetivo geral é **analisar criticamente a implantação de um modelo de governança digital no setor
-da educação pública federal** — isto é, não apenas propor o modelo, mas acompanhar e avaliar o que
-acontece quando ele é efetivamente implantado em uma instituição real ao longo do tempo.
+Pesquisa **aplicada, qualitativa**, conduzida pelo método **Design Science Research (DSR)** de
+Peffers (2007), por meio de um **estudo de caso longitudinal (2018–2024)** em uma IFE multicampi da
+**região Norte**, escolhida por conveniência. O DSR foi percorrido em suas seis etapas: identificação
+do problema, objetivos da solução, design e desenvolvimento, demonstração, avaliação e comunicação.
 
-## 4. Metodologia
+A coleta usou **triangulação metodológica**: análise documental (normativos, relatórios de auditoria,
+planos estratégicos), **entrevistas semiestruturadas com 12 gestores de TI** e **grupo focal com 8
+especialistas** em governança digital — todos com no mínimo cinco anos de experiência. Os dados
+passaram por **análise de conteúdo temática** (Bardin, 2016) e foram complementados por **indicadores
+quantitativos do TCU — o iGovTI e o iGestTI** —, medidos em três ciclos: **2018, 2021 e 2024**. É
+justamente essa combinação de percepção qualitativa com índice objetivo, ao longo de sete anos, que
+dá robustez ao trabalho.
 
-| Elemento | Definição adotada no artigo |
-|---|---|
-| **Método** | *Design Science Research* (DSR) |
-| **Abordagem** | Qualitativa |
-| **Natureza** | Pesquisa aplicada |
-| **Estratégia** | Estudo de caso **longitudinal** |
-| **Período** | **2018 a 2024** (sete anos) |
-| **Objeto** | Uma IFE da **região Norte** do país |
+## 4. O modelo proposto
 
-A escolha do **DSR** é coerente com o problema: trata-se de um método voltado à **construção e
-avaliação de um artefato** (aqui, o modelo de governança digital) que resolve um problema prático
-identificado, e não apenas à descrição de uma realidade. O caráter **longitudinal** é o diferencial
-metodológico do trabalho — em vez de uma fotografia da maturidade em um momento único, o estudo
-acompanha a **evolução** da instituição ao longo de sete anos, o que permite observar se os ganhos
-de governança se sustentam e se institucionalizam de fato.
+O diagnóstico inicial apontou três eixos de atuação: **estrutura organizacional**, **padronização de
+políticas, normas e processos** e **capacitação técnica contínua**.
+
+Sobre a articulação dos frameworks, os autores adotam uma síntese elegante (Santos e Moura, 2024):
+**o COBIT define "o que" governar, o ITIL 4 descreve "como" operacionalizar os serviços e a ISO/IEC
+38500 estabelece "por que" governar.** O modelo resultante é estruturado em **seis dimensões
+estratégicas**: responsabilidade, estratégia, aquisição, desempenho, conformidade e comportamento
+humano; e apoiado nos eixos analíticos de pessoas, processos, organização, comunicação, legislação e
+tecnologia.
+
+Arquitetonicamente, o modelo separa dois domínios, no padrão do COBIT: **governança** (*avaliar,
+dirigir e monitorar*, responsabilidade do corpo diretivo) e **gestão** (quatro subdomínios: alinhar,
+planejar e organizar; construir, adquirir e implementar; entregar, serviço e suporte; monitorar,
+avaliar e analisar). Tudo isso opera dentro de um **ciclo PDCA** de melhoria contínua.
 
 ## 5. Resultados
 
-Os resultados evidenciaram **evolução significativa da maturidade em TI / governança digital** na
-instituição analisada. Os principais avanços relatados foram:
+A implantação foi progressiva: em **2018** a Diretoria de TI tornou-se setor sistêmico ligado ao
+gabinete do reitor; em **2019** foram criados a Coordenação de Governança de TI e o **Comitê Gestor
+de TI (CGTI)**; em **2020** veio o PDTIC 2020–2024; em **2021**, a política e o modelo de GD, a
+adoção dos frameworks e a capacitação continuada via RNP e ENAP; em **2023**, o Programa de
+Privacidade e Segurança da Informação, o comitê de SI e a ETIR; e em **2024**, a integração dos
+planos institucionais e a adesão à nova EFGD.
 
-1. **Formalização de um modelo de governança de TI** e da estrutura organizacional da área — ou seja,
-   a definição explícita de como a TI é governada na instituição, em vez de arranjos informais.
-2. **Criação do Comitê Gestor de TI**, estabelecendo uma estrutura formal de tomada de decisão com
-   participação institucional.
-3. **Institucionalização de políticas, normas, planos, processos e práticas** — a governança deixa de
-   depender das pessoas que ocupam os cargos e passa a estar registrada em instrumentos normativos.
-4. **Fortalecimento da segurança da informação**, tema central tanto na EFGD quanto nas exigências de
-   conformidade (LGPD, requisitos dos órgãos de controle).
-5. **Melhoria na execução dos planos institucionais**, indicando que a governança não ficou restrita
-   ao papel: ela se refletiu na capacidade real de a instituição entregar o que planejou.
+Os índices do TCU comprovam a evolução:
 
-## 6. Conclusão
+| Índice | 2018 | 2021 | 2024 |
+|---|---|---|---|
+| **iGovTI** | 28% | 53,4% | 75,5% |
+| **iGestTI** | 34% | 63,0% | 88,5% |
 
-A solução proposta se mostrou **viável e eficaz**, com **potencial de replicação em outras IFEs**,
-contribuindo para uma **transformação digital sustentável da educação pública federal**. A palavra
-"sustentável" é relevante aqui: o que o estudo longitudinal sugere é que os ganhos não foram um
-pico pontual de conformidade, mas uma mudança que se manteve ao longo dos anos porque foi
-institucionalizada.
+A instituição passou do nível **"incipiente" para "aprimorado"**. Um dado adicional reforça o
+resultado: a execução do plano diretor saltou de **49,37% (PDTI 2015–2019) para 94,38% (PDTIC
+2020–2024)** — ou seja, a governança não ficou no papel, refletiu-se na capacidade real de entregar.
 
-## 7. Análise crítica e diálogo com Weill & Ross *(minha leitura, não do artigo)*
+Os autores, porém, **não escondem o que não funcionou**: persistem a alta rotatividade de servidores
+de TI, a escassez de profissionais capacitados, as restrições orçamentárias e — de forma recorrente
+no texto — a **baixa integração entre os setores administrativos e acadêmicos**, que impede uma
+governança digital transversal.
 
-A aproximação com o artigo da Questão 1 é direta e vale registrar:
+## 6. Limitações e considerações finais
 
-- **"Governança eficaz não acontece por acidente."** O artigo brasileiro é praticamente um estudo de
-  caso dessa tese no setor público: a maturidade só evoluiu quando a governança foi **desenhada e
-  formalizada**, e não quando surgiram iniciativas isoladas de TI.
-- **O comitê não veio sozinho.** Assim como Weill & Ross alertam que criar um comitê não basta, os
-  resultados relatados combinam **estrutura de decisão** (o Comitê Gestor de TI) com
-  **institucionalização de políticas, normas, planos, processos e práticas** — o que corresponde aos
-  *processos de alinhamento* e à formalização de que os autores do MIT falam.
-- **Sinergia versus autonomia em versão multicampi.** O trade-off central de Weill & Ross reaparece
-  aqui sob outro nome: uma IFE multicampi precisa decidir o que padroniza centralmente e o que deixa
-  a cargo de cada campus. É exatamente o tipo de decisão que a matriz "governança em uma página"
-  ajudaria a explicitar.
-- **Uma diferença importante de contexto:** em Weill & Ross o direcionador é o desempenho financeiro
-  (lucro, utilização de ativos, crescimento). Numa IFE, o direcionador é o **cumprimento da missão
-  institucional e a conformidade com as diretrizes federais (EFGD)** — o que muda as métricas, mas
-  não muda a lógica de que a governança deve ser desenhada para induzir os comportamentos que
-  aquele objetivo exige.
+O estudo reconhece limitações relevantes: trata-se de **caso único**, com amostra por conveniência em
+uma instituição que **já possuía histórico de iniciativas em GD**; há risco de **viés de confirmação**
+(os participantes podem ter interesse em reforçar a eficácia de um modelo que ajudaram a implantar, e
+a orientação por frameworks consolidados pode ter privilegiado evidências favoráveis a eles); e não
+houve **auditoria externa**. Por isso os achados não são automaticamente generalizáveis.
+
+As contribuições declaradas são três: **integração estratégica e operacional** (adaptação
+contextualizada dos frameworks à realidade das IFEs), **metodologia empiricamente validada** e
+**modelo replicável**. A conclusão central é que a maturidade em GD **não evolui de forma linear**:
+ela depende de fatores contextuais como apoio da alta gestão, cultura organizacional e políticas
+públicas — e exige uma abordagem **sistêmica e contínua**, com liderança estratégica, capacitação,
+inovação tecnológica e mudança cultural.
 
 ---
 
-## ⚠️ Nota de status — o que falta e por quê
+## Apêndice (opcional) — Diálogo com Weill & Ross
 
-**O que está feito:** a síntese acima é fiel ao resumo oficial publicado pela revista (problema,
-justificativa, objetivo, metodologia, resultados e conclusão) e aos metadados confirmados da
-publicação (Rev. Sítio Novo, Palmas, v. 9, e1795, 2025, 20 páginas, e-ISSN 2594-7036).
+*Seção de leitura própria, fora do limite de 2 páginas da síntese. Pode ser removida.*
 
-**O que falta:** não consegui acessar o **texto completo** do artigo. Tanto o site da revista
-(`sitionovo.ifto.edu.br`) quanto o ResearchGate estão **bloqueados pela política de egresso de rede
-desta sessão** — não é um erro contornável do meu lado. Por isso, os seguintes pontos não puderam
-ser sintetizados e **precisam ser completados a partir do PDF do Moodle**:
-
-- [ ] **Autoria e filiação** — os nomes dos autores não aparecem nos metadados que consegui
-      confirmar. **Preencha a referência antes de entregar**, no formato ABNT:
-      `SOBRENOME, Nome et al. Governança digital: uma estratégia para o sucesso da transformação
-      digital na educação pública federal. Rev. Sítio Novo, Palmas, v. 9, e1795, 2025.`
-- [ ] **Detalhamento do artefato** — quais são os componentes concretos do modelo de governança
-      digital proposto (instrumentos, papéis, fluxos, documentos).
-- [ ] **Ciclos do DSR** — como foram conduzidas as iterações de construção e avaliação ao longo de
-      2018–2024.
-- [ ] **Indicadores de maturidade** — qual modelo/escala de maturidade foi usado e quais foram os
-      números de antes e depois.
-- [ ] **Referencial teórico** — quais frameworks consolidados foram adaptados (COBIT, referenciais
-      do TCU, IN SGD/ME, etc.) e como.
-- [ ] **Limitações apontadas pelos autores** e sugestões de trabalhos futuros.
-
-**Para eu terminar:** basta anexar o PDF do artigo (baixe em
-`Revista Sítio Novo → v. 9 (2025) → artigo e1795`, ou no próprio Moodle) que eu completo a síntese
-até as 2 páginas com o conteúdo do corpo do texto.
+- **"Governança eficaz não acontece por acidente."** O artigo é um estudo de caso dessa tese no setor
+  público: a maturidade só evoluiu quando a governança foi **desenhada e formalizada**.
+- **O comitê não veio sozinho — e isso é o ponto.** O CGTI foi criado em 2019, mas os índices só
+  deslancharam depois de 2021, quando vieram políticas, normas, processos, catálogo de serviços e
+  capacitação. É exatamente o alerta do item (f) da Questão 1: comitê é *uma* estrutura de decisão,
+  e governança exige também **processos de alinhamento** e **comunicação formal**.
+- **Os domínios coincidem.** "Avaliar, dirigir e monitorar" versus os quatro subdomínios de gestão
+  reproduz a distinção governança × gestão do item (b).
+- **Sinergia versus autonomia, em versão multicampi.** A "baixa integração entre setores" que o
+  artigo aponta como limitação é o trade-off de Weill & Ross aparecendo como problema prático.
+- **O que muda é o direcionador.** Em Weill & Ross ele é financeiro (lucro, ativos, crescimento); na
+  IFE é a **missão institucional e a conformidade com a EFGD**. Mudam as métricas — iGovTI e iGestTI
+  no lugar de ROE e ROA —, mas não muda a lógica de desenhar a governança para induzir os
+  comportamentos que o objetivo exige.
