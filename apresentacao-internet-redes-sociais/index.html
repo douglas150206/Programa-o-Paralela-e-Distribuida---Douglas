@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Internet e transformações do final do século XX: o surgimento das redes sociais. Trabalho de História da Ciência e Tecnologia, ADS, IFSP Jacareí.">
+<title>Internet e Transformações do Final do Século XX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: uma história em cenas. Cada parte é um capítulo numerado; cada cena junta um desenho grande e duas ou três frases,
+   alternando o lado do desenho. Os desenhos ficam em quadros de cor fixa, como fotografias, e o resto segue o tema. */
+:root{
+  --paper:#F3F5F1; --paper-2:#E4EAE3; --surface:#FBFCFA; --ink:#142019; --ink-2:#3C4842; --muted:#5F6B65; --rule:#C9D1CB;
+  --accent:#8A5A00; --bar:#8A5A00; --link:#2856C2;
+  --panel:#142019; --on-panel:#EEF2EC; --on-panel-2:#BAC5BE; --on-panel-3:#8E9A93; --panel-rule:#2E3D35; --amber:#E8A33D;
+  --band:#E8A33D; --on-band:#142019;
+  --f-display:"Saira","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --t-xs:.8125rem; --t-s:.95rem; --t-body:1.125rem; --t-lead:1.28rem; --t-h3:1.5rem;
+  --t-h2:clamp(1.9rem,4.4vw,3.1rem); --t-h1:clamp(2.2rem,6.4vw,4.5rem); --t-num:clamp(3.2rem,9vw,6.5rem);
+  --gutter:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1512; --paper-2:#151D18; --surface:#18201C; --ink:#E6ECE7; --ink-2:#BAC5BE; --muted:#8E9A93; --rule:#2B3530;
+    --accent:#E8A33D; --bar:#B97A20; --link:#8FB0FF; --panel:#1A2420; --panel-rule:#33433A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1512; --paper-2:#151D18; --surface:#18201C; --ink:#E6ECE7; --ink-2:#BAC5BE; --muted:#8E9A93; --rule:#2B3530;
+  --accent:#E8A33D; --bar:#B97A20; --link:#8FB0FF; --panel:#1A2420; --panel-rule:#33433A;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.75rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font:400 var(--t-body)/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:72rem;margin-inline:auto;padding-inline:var(--gutter)}
+a{color:var(--link);text-underline-offset:.18em}
+:focus-visible{outline:3px solid var(--link);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+p,figure{margin:0}
+.rotulo{font:600 var(--t-xs)/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+
+/* barra superior */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.65rem}
+.marca{font:700 1rem/1.1 var(--f-display);color:var(--ink);text-decoration:none;white-space:nowrap}
+.marca span{color:var(--accent)}
+.nav-partes{display:flex;align-items:center;gap:.25rem;list-style:none;margin:0;padding:0}
+.nav-partes a{display:flex;align-items:center;gap:.4rem;padding:.4rem .6rem;border-radius:6px;font:600 var(--t-xs)/1 var(--f-mono);color:var(--ink-2);text-decoration:none}
+.nav-partes a .n{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;border:1.5px solid currentColor}
+.nav-partes a:hover{color:var(--ink);background:var(--paper-2)}
+.nav-partes a[aria-current="true"]{color:var(--accent)}
+.nav-partes a[aria-current="true"] .n{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.nav-partes .nome{display:none}
+@media (min-width:64rem){.nav-partes .nome{display:inline}}
+@media (max-width:30rem){.marca{display:none}.topo .wrap{justify-content:center}}
+
+/* abertura */
+.abertura{background:var(--panel);color:var(--on-panel)}
+.abertura .wrap{display:grid;gap:2.5rem;padding-block:clamp(3rem,8vw,6rem)}
+@media (min-width:56rem){.abertura .wrap{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:center}}
+.abertura .rotulo{color:var(--amber)}
+.abertura h1{font-size:var(--t-h1);font-weight:700;line-height:1.04;letter-spacing:-.01em;margin-top:.9rem;max-width:16ch}
+.abertura .sub{font:500 clamp(1.25rem,2.6vw,1.6rem)/1.3 var(--f-display);color:var(--on-panel-2);margin-top:.8rem}
+.abertura .lede{font-size:var(--t-lead);line-height:1.55;color:var(--on-panel-2);margin-top:1.4rem;max-width:34rem}
+.acoes{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.15rem;border-radius:8px;font:700 1rem/1 var(--f-display);text-decoration:none;border:2px solid var(--amber)}
+.btn svg{width:1rem;height:1rem;flex:none}
+.btn-cheio{background:var(--amber);color:#142019}
+.btn-cheio:hover{background:#F0B455;border-color:#F0B455}
+.btn-vazio{color:var(--on-panel);border-color:var(--on-panel-3)}
+.btn-vazio:hover{border-color:var(--on-panel)}
+.abertura :focus-visible{outline-color:var(--amber)}
+.rede{width:100%;max-width:26rem;height:auto;justify-self:center;display:block}
+
+/* pergunta e linha do tempo */
+.intro{padding-block:clamp(3rem,7vw,5rem) 1rem}
+.grande-pergunta{font:700 clamp(1.6rem,3.6vw,2.6rem)/1.15 var(--f-display);max-width:28ch;text-wrap:balance;margin-top:.8rem}
+.linha{list-style:none;margin:3rem 0 0;padding:0;display:grid;gap:.75rem}
+@media (min-width:56rem){.linha{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.25rem}}
+.linha a{display:grid;gap:.35rem;padding:1rem 0 .5rem;border-top:6px solid var(--ink);color:inherit;text-decoration:none;min-width:0}
+.linha a:hover{border-top-color:var(--accent)}
+.linha a:hover .l-nome{color:var(--accent)}
+.l-nome{font:700 1.3rem/1.15 var(--f-display)}
+.l-periodo{font:600 var(--t-s)/1.3 var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums}
+.linha .rotulo{color:var(--accent)}
+
+/* capítulos e cenas */
+.parte{padding-block:clamp(3.5rem,8vw,6rem);border-top:1px solid var(--rule)}
+.parte.alt{background:var(--paper-2)}
+.parte-cab{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.25rem clamp(1rem,3vw,2rem);align-items:start}
+.numeral{font:800 var(--t-num)/.82 var(--f-display);color:var(--accent)}
+.parte-cab .rotulo{margin-bottom:.6rem}
+.parte-cab h2{font-size:var(--t-h2);font-weight:700;line-height:1.08;letter-spacing:-.01em}
+.pergunta-parte{font-style:italic;font-size:var(--t-lead);line-height:1.5;color:var(--ink-2);margin-top:1rem;max-width:40rem}
+.cenas{display:grid;gap:clamp(2.75rem,7vw,5rem);margin-top:clamp(2.25rem,5vw,3.5rem)}
+.cena{display:grid;gap:1.25rem 3rem;align-items:center}
+@media (min-width:56rem){.cena{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}.cena.inv > .quadro,.cena.inv > .visual{order:2}}
+.quadro{border-radius:18px;padding:clamp(1rem,3vw,2.25rem);display:grid;place-items:center;min-width:0}
+.quadro.escuro{background:#142019;box-shadow:inset 0 0 0 1px var(--panel-rule)}
+.quadro.claro{background:#E4EAE3}
+.ilu{display:block;width:100%;height:auto;max-width:28rem}
+.visual{min-width:0}
+.cena-texto{display:grid;gap:.75rem;align-content:start;min-width:0}
+.cena-texto h3{font-size:var(--t-h3);font-weight:700;line-height:1.2}
+:where(.cena-texto) p{color:var(--ink-2);max-width:34rem}
+.cena-texto small{font:400 var(--t-xs)/1.5 var(--f-mono);color:var(--muted)}
+.data{font:600 var(--t-xs)/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.grande{font:800 clamp(3rem,9vw,5.5rem)/1 var(--f-display);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:.25rem 0 0;padding:0}
+.chips li{font:600 var(--t-xs)/1 var(--f-mono);padding:.55rem .85rem;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);background:var(--surface)}
+.citacao{font:700 clamp(1.3rem,2.8vw,1.7rem)/1.22 var(--f-display);color:var(--accent);text-wrap:balance}
+.logos{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;color:var(--ink)}
+.logos svg{width:2.6rem;height:2.6rem}
+.trilho{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+@media (min-width:44rem){.trilho{grid-template-columns:repeat(var(--n),minmax(0,1fr))}}
+.trilho li{border-top:5px solid var(--ink);padding-top:.75rem;display:grid;gap:.2rem;align-content:start;min-width:0}
+.trilho b{font:700 1.6rem/1.1 var(--f-display);color:var(--accent)}
+.trilho strong{font:700 1.1rem/1.2 var(--f-display);color:var(--ink)}
+.trilho span{font-size:var(--t-s);line-height:1.4;color:var(--ink-2)}
+.blocos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.bloco{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:1rem 1.1rem;display:flex;gap:1rem;align-items:center;min-width:0}
+.bloco .ico{flex:none;width:3.5rem;height:3.5rem;border-radius:50%;background:var(--paper-2);display:grid;place-items:center;color:var(--ink)}
+.parte.alt .bloco .ico{background:var(--paper)}
+.bloco .ico svg{width:1.8rem;height:1.8rem}
+.bloco b{display:block;font:700 1.1rem/1.2 var(--f-display);color:var(--ink)}
+.bloco span{font:400 var(--t-xs)/1.4 var(--f-mono);color:var(--muted)}
+.comparar{display:grid;gap:1rem}
+@media (min-width:36rem){.comparar{grid-template-columns:1fr 1fr}}
+.comparar figure{gap:.9rem}
+.comparar figcaption{font:600 var(--t-s)/1.35 var(--f-display);text-align:center}
+.comparar .escuro figcaption{color:#EEF2EC}
+.comparar .claro figcaption{color:#142019}
+.comparar figcaption b{display:block;font-size:1.6rem;line-height:1.1}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;width:100%}
+.trio figure{display:grid;gap:.5rem;justify-items:center;text-align:center}
+.trio svg{width:100%;max-width:9rem;height:auto}
+.trio figcaption{font:600 var(--t-xs)/1.3 var(--f-mono);color:#142019}
+.duas{display:grid;grid-template-columns:repeat(2,minmax(0,6rem));justify-content:center;gap:2.5rem;height:13rem;width:100%;border-bottom:2px solid #142019}
+.duas div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:.4rem}
+.duas i{display:block;width:24px;background:#8A5A00;border-radius:4px 4px 0 0}
+.duas span{font:600 var(--t-xs)/1 var(--f-mono);color:#142019;white-space:nowrap}
+.duas-anos{display:grid;grid-template-columns:repeat(2,minmax(0,6rem));justify-content:center;gap:2.5rem;width:100%;margin-top:.5rem}
+.duas-anos span{text-align:center;font:600 var(--t-xs)/1 var(--f-mono);color:#142019}
+.duas-fonte{margin-top:.75rem;font:400 var(--t-xs)/1.4 var(--f-mono);color:#3C4842;text-align:center}
+.tres{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tres li{display:grid;gap:.25rem;padding:0 0 1.4rem 1.6rem;position:relative}
+.tres li::before{content:"";position:absolute;left:.32rem;top:.5rem;bottom:-.2rem;width:2px;background:var(--rule)}
+.tres li:last-child::before{display:none}
+.tres li::after{content:"";position:absolute;left:0;top:.3rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--muted)}
+.tres li:last-child::after{background:var(--accent)}
+.tres p{font:700 clamp(1.15rem,2.4vw,1.45rem)/1.25 var(--f-display);color:var(--ink)}
+.tres li:last-child p{color:var(--accent)}
+.proxima{display:grid;gap:.4rem;margin-top:3.5rem;padding-top:1.25rem;border-top:2px solid var(--ink);max-width:42rem;color:inherit;text-decoration:none}
+.proxima .rotulo{color:var(--accent)}
+.proxima span:last-child{font-style:italic;font-size:var(--t-lead);line-height:1.45;color:var(--ink)}
+.proxima:hover span:last-child{text-decoration:underline;text-decoration-color:var(--accent)}
+
+/* figuras que seguem o tema (diagramas e gráfico) */
+.fig{padding:clamp(.6rem,3vw,1.25rem);background:var(--surface);border:1px solid var(--rule);border-radius:16px;min-width:0}
+.fig svg{display:block;width:100%;height:auto;margin-inline:auto}
+.fig figcaption{margin-top:.9rem;font-size:var(--t-s);line-height:1.5;color:var(--muted)}
+.fig .fig-titulo{margin:0 0 1rem;font:600 var(--t-xs)/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.d-txt{fill:var(--ink);font-family:var(--f-display);font-weight:700}
+.d-sub{fill:var(--muted);font-family:var(--f-mono)}
+.d-inv{fill:var(--paper);font-family:var(--f-display);font-weight:700}
+.d-pac{fill:var(--paper);font-family:var(--f-mono);font-weight:600}
+.d-caixa{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.d-caixa-escura{fill:var(--ink)}
+.d-linha{stroke:var(--ink);fill:none}
+.d-linha-fraca{stroke:var(--muted);fill:none}
+.d-acc-fill{fill:var(--accent)}
+.d-ink{fill:var(--ink)}
+.d-muted{fill:var(--muted)}
+.legenda-lacos{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:.9rem;font-size:var(--t-s);color:var(--ink-2)}
+.legenda-lacos span{display:inline-flex;align-items:center;gap:.5rem}
+.legenda-lacos i{display:inline-block;width:2rem}
+.legenda-lacos .forte{border-top:4px solid var(--ink)}
+.legenda-lacos .fraco{border-top:3px dashed var(--muted)}
+.graf{display:grid;grid-template-columns:2.25rem minmax(0,1fr);grid-template-rows:15rem auto}
+.graf-eixo{position:relative;grid-column:1;grid-row:1}
+.graf-eixo span{position:absolute;right:.6rem;transform:translateY(50%);font:400 var(--t-xs)/1 var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.graf-area{position:relative;grid-column:2;grid-row:1}
+.graf-grade span{position:absolute;left:0;right:0;border-top:1px solid var(--rule)}
+.graf-grade span.zero{border-top-color:var(--muted)}
+.graf-barras{position:absolute;inset:0;display:flex}
+.graf-slot{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:.35rem;padding:0;border:0;background:transparent;cursor:pointer;font:inherit;color:inherit}
+.graf-slot:focus-visible{outline-offset:-2px}
+.graf-barra{display:block;width:min(24px,55%);height:calc(var(--v) / 6 * 100%);min-height:2px;background:var(--bar);border-radius:4px 4px 0 0;transition:filter .15s}
+.graf-slot:hover .graf-barra,.graf-slot:focus-visible .graf-barra{filter:brightness(1.18)}
+.graf-rot{font:600 var(--t-xs)/1 var(--f-mono);color:var(--ink);white-space:nowrap}
+.graf-anos{grid-column:2;grid-row:2;display:flex;padding-top:.5rem}
+.graf-anos span{flex:1;text-align:center;font:400 var(--t-xs)/1 var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.dica{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,calc(-100% - 10px));background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:.45rem .65rem;box-shadow:0 6px 20px rgb(0 0 0 / .14);white-space:nowrap}
+.dica strong{display:block;font:700 1rem/1.2 var(--f-display);color:var(--ink)}
+.dica span{display:flex;align-items:center;gap:.4rem;font:400 var(--t-xs)/1.4 var(--f-mono);color:var(--muted)}
+.dica span::before{content:"";width:12px;border-top:2px solid var(--bar)}
+.fonte-dados{margin-top:.9rem;font:400 var(--t-xs)/1.5 var(--f-mono);color:var(--muted)}
+.tabela-dados{margin-top:.75rem}
+.tabela-dados summary{cursor:pointer;width:fit-content;font:600 var(--t-xs)/1.4 var(--f-mono);color:var(--ink-2)}
+.tabela-wrap{overflow-x:auto;margin-top:.6rem}
+.tabela-dados table{border-collapse:collapse;width:100%;font-size:var(--t-s)}
+.tabela-dados th,.tabela-dados td{text-align:left;padding:.4rem .6rem;border-bottom:1px solid var(--rule)}
+.tabela-dados td:nth-child(2){font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* conclusão, referências, rodapé */
+.conclusao{background:var(--band);color:var(--on-band)}
+.conclusao .wrap{padding-block:clamp(3.5rem,9vw,6.5rem);display:grid;gap:1.4rem}
+.conclusao .rotulo{color:var(--on-band)}
+.conclusao h2{font-size:clamp(1.7rem,4.2vw,3rem);font-weight:700;line-height:1.1;max-width:24ch}
+.conclusao p{font-size:var(--t-lead);line-height:1.5;max-width:40rem}
+.debate{margin-top:1.5rem;padding-top:1.5rem;border-top:2px solid var(--on-band);display:grid;gap:.5rem}
+.debate p{font:700 clamp(1.3rem,2.8vw,1.8rem)/1.2 var(--f-display);max-width:32ch}
+.referencias{padding-block:clamp(3rem,7vw,5rem)}
+.referencias h2{font-size:var(--t-h2);font-weight:700;line-height:1.1;margin-top:.6rem}
+.refs{list-style:none;margin:1.75rem 0 0;padding:0;display:grid;gap:.85rem}
+@media (min-width:56rem){.refs{grid-template-columns:1fr 1fr;column-gap:3rem}}
+.refs li{font-size:var(--t-s);line-height:1.5;color:var(--ink-2);padding-left:1rem;border-left:2px solid var(--rule);min-width:0}
+.rodape{border-top:1px solid var(--rule)}
+.rodape .wrap{padding-block:1.75rem 2.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;font:400 var(--t-xs)/1.5 var(--f-mono);color:var(--muted)}
+</style>
+</head>
+<body>
+<div lang="pt-BR">
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio">Internet <span>→</span> Redes sociais</a>
+    <nav aria-label="Partes">
+      <ol class="nav-partes">
+        <li><a href="#parte-1"><span class="n">1</span><span class="nome">Origens</span></a></li>
+        <li><a href="#parte-2"><span class="n">2</span><span class="nome">Popularização</span></a></li>
+        <li><a href="#parte-3"><span class="n">3</span><span class="nome">Redes sociais</span></a></li>
+        <li><a href="#parte-4"><span class="n">4</span><span class="nome">Sociedade</span></a></li>
+        <li><a href="#parte-5"><span class="n">5</span><span class="nome">Legado</span></a></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="abertura" id="inicio" aria-labelledby="titulo">
+  <div class="wrap">
+    <div>
+      <p class="rotulo">História da Ciência e Tecnologia · ADS · IFSP Jacareí</p>
+      <h1 id="titulo">Internet e as transformações do final do século XX</h1>
+      <p class="sub">O surgimento das redes sociais</p>
+      <p class="lede">Da Guerra Fria ao celular no seu bolso, em cinco partes.</p>
+      <div class="acoes">
+        <a class="btn btn-cheio" href="slides.html">Abrir os slides
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="btn btn-vazio" href="#parte-1">Começar</a>
+      </div>
+    </div>
+    <svg class="rede" viewBox="0 0 560 560" role="img" aria-label="Os quatro primeiros computadores da ARPANET, de 1969, em destaque no centro de uma rede que cresce ao redor deles">
+      <g stroke="#33433A" stroke-width="2" fill="none">
+        <line x1="125" y1="205" x2="165" y2="295"/><line x1="125" y1="205" x2="85" y2="125"/><line x1="85" y1="125" x2="205" y2="70"/>
+        <line x1="205" y1="70" x2="250" y2="200"/><line x1="205" y1="70" x2="335" y2="55"/><line x1="335" y1="55" x2="380" y2="165"/>
+        <line x1="335" y1="55" x2="475" y2="95"/><line x1="475" y1="95" x2="380" y2="165"/><line x1="475" y1="95" x2="505" y2="235"/>
+        <line x1="505" y1="235" x2="425" y2="265"/><line x1="425" y1="265" x2="380" y2="165"/><line x1="425" y1="265" x2="455" y2="355"/>
+        <line x1="455" y1="355" x2="490" y2="470"/><line x1="490" y1="470" x2="365" y2="480"/><line x1="365" y1="480" x2="275" y2="335"/>
+        <line x1="365" y1="480" x2="245" y2="490"/><line x1="245" y1="490" x2="275" y2="335"/><line x1="245" y1="490" x2="115" y2="440"/>
+        <line x1="115" y1="440" x2="165" y2="295"/><line x1="115" y1="440" x2="55" y2="315"/><line x1="55" y1="315" x2="165" y2="295"/>
+        <line x1="55" y1="315" x2="125" y2="205"/><line x1="455" y1="355" x2="275" y2="335"/>
+      </g>
+      <g stroke="#E8A33D" stroke-width="4" fill="none">
+        <line x1="250" y1="200" x2="380" y2="165"/><line x1="250" y1="200" x2="165" y2="295"/>
+        <line x1="250" y1="200" x2="275" y2="335"/><line x1="165" y1="295" x2="275" y2="335"/>
+      </g>
+      <g fill="#6E7B74">
+        <circle cx="85" cy="125" r="7"/><circle cx="205" cy="70" r="7"/><circle cx="335" cy="55" r="7"/><circle cx="475" cy="95" r="7"/>
+        <circle cx="505" cy="235" r="7"/><circle cx="425" cy="265" r="7"/><circle cx="455" cy="355" r="7"/><circle cx="490" cy="470" r="7"/>
+        <circle cx="365" cy="480" r="7"/><circle cx="245" cy="490" r="7"/><circle cx="115" cy="440" r="7"/><circle cx="55" cy="315" r="7"/>
+        <circle cx="125" cy="205" r="7"/>
+      </g>
+      <g fill="none" stroke="#E8A33D" stroke-width="2" opacity=".4">
+        <circle cx="250" cy="200" r="24"/><circle cx="380" cy="165" r="24"/><circle cx="165" cy="295" r="24"/><circle cx="275" cy="335" r="24"/>
+      </g>
+      <g fill="#E8A33D">
+        <circle cx="250" cy="200" r="13"/><circle cx="380" cy="165" r="13"/><circle cx="165" cy="295" r="13"/><circle cx="275" cy="335" r="13"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="intro" aria-labelledby="pergunta-titulo">
+  <div class="wrap">
+    <p class="rotulo" id="pergunta-titulo">A pergunta que guia esta história</p>
+    <p class="grande-pergunta">Como uma rede criada para ligar computadores de pesquisa virou o lugar onde a gente conversa, trabalha e se informa?</p>
+    <ol class="linha" aria-label="As cinco partes">
+      <li><a href="#parte-1"><span class="rotulo">Parte 1</span><span class="l-nome">Origens</span><span class="l-periodo">1957–1993</span></a></li>
+      <li><a href="#parte-2"><span class="rotulo">Parte 2</span><span class="l-nome">Popularização</span><span class="l-periodo">1990–2000</span></a></li>
+      <li><a href="#parte-3"><span class="rotulo">Parte 3</span><span class="l-nome">Redes sociais</span><span class="l-periodo">1997–2006</span></a></li>
+      <li><a href="#parte-4"><span class="rotulo">Parte 4</span><span class="l-nome">Sociedade</span><span class="l-periodo">2004–2013</span></a></li>
+      <li><a href="#parte-5"><span class="rotulo">Parte 5</span><span class="l-nome">Legado</span><span class="l-periodo">2000–hoje</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PARTE 1 ================= -->
+<section class="parte" id="parte-1" aria-labelledby="t1">
+  <div class="wrap">
+    <header class="parte-cab">
+      <span class="numeral" aria-hidden="true">1</span>
+      <div>
+        <p class="rotulo">Parte 1 de 5 · 1957–1993</p>
+        <h2 id="t1">Das origens da Internet à World Wide Web</h2>
+        <p class="pergunta-parte">Como uma tecnologia criada para ligar computadores de pesquisa virou a base da Internet?</p>
+      </div>
+    </header>
+    <div class="cenas">
+      <article class="cena">
+        <figure class="quadro escuro"><svg class="ilu" role="img" data-src="p1-guerra-fria:0" aria-label="O satélite Sputnik em órbita da Terra, emitindo sinais, com estrelas ao fundo" viewBox="0 0 720 720">
+<g fill="#8E9A93">
+<circle cx="60" cy="80" r="2.5"/><circle cx="140" cy="40" r="2.5"/><circle cx="220" cy="120" r="2.5"/><circle cx="310" cy="60" r="2.5"/><circle cx="560" cy="70" r="2.5"/>
+<circle cx="650" cy="130" r="2.5"/><circle cx="680" cy="300" r="2.5"/><circle cx="80" cy="240" r="2.5"/><circle cx="180" cy="300" r="2.5"/><circle cx="40" cy="390" r="2.5"/>
+<circle cx="250" cy="210" r="2.5"/><circle cx="660" cy="420" r="2.5"/><circle cx="120" cy="470" r="2.5"/>
+</g>
+<g fill="#EEF2EC">
+<circle cx="600" cy="220" r="3.5"/><circle cx="520" cy="160" r="3.5"/><circle cx="380" cy="110" r="3.5"/>
+</g>
+<circle cx="360" cy="1180" r="640" fill="#1E2A24" stroke="#2E3D35" stroke-width="6"/>
+<ellipse cx="360" cy="420" rx="310" ry="95" fill="none" stroke="#3C4842" stroke-width="3" stroke-dasharray="10 12" transform="rotate(-10 360 420)"/>
+<g stroke="#BAC5BE" stroke-width="4" stroke-linecap="round">
+<line x1="380" y1="350" x2="92" y2="486"/>
+<line x1="386" y1="368" x2="120" y2="560"/>
+<line x1="398" y1="382" x2="190" y2="640"/>
+<line x1="410" y1="388" x2="262" y2="668"/>
+</g>
+<circle cx="430" cy="330" r="62" fill="#BAC5BE"/>
+<circle cx="412" cy="312" r="36" fill="#EEF2EC" opacity="0.55"/>
+<ellipse cx="430" cy="330" rx="62" ry="14" fill="none" stroke="#8E9A93" stroke-width="2"/>
+<g fill="none" stroke="#E8A33D" stroke-width="5" stroke-linecap="round">
+<path d="M 477.5 247.7 A 95 95 0 0 1 519.3 297.5"/>
+<path d="M 492.5 221.75 A 125 125 0 0 1 547.5 287.25" opacity="0.7"/>
+<path d="M 507.5 195.8 A 155 155 0 0 1 575.7 277" opacity="0.4"/>
+</g>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">1957 · 1958</p>
+          <h3>A Guerra Fria acelera a pesquisa</h3>
+          <p>O Sputnik soviético assusta os EUA, que criam a ARPA em 1958 para financiar ciência de ponta. Os computadores da época eram enormes e isolados.</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p1-ideia-rede:0" aria-label="Dois computadores ligados por três caminhos; uma mensagem viaja dividida em três envelopes, um em cada caminho" viewBox="10 138 700 444">
+<g fill="none" stroke="#5F6B65" stroke-width="4" stroke-linejoin="round">
+<polyline points="180,360 250,190 470,190 540,360"/>
+<line x1="180" y1="360" x2="540" y2="360"/>
+<polyline points="180,360 250,530 470,530 540,360"/>
+</g>
+<g fill="#FBFCFA" stroke="#5F6B65" stroke-width="4">
+<circle cx="250" cy="190" r="12"/><circle cx="360" cy="190" r="12"/><circle cx="470" cy="190" r="12"/>
+<circle cx="270" cy="360" r="12"/><circle cx="450" cy="360" r="12"/>
+<circle cx="250" cy="530" r="12"/><circle cx="360" cy="530" r="12"/><circle cx="470" cy="530" r="12"/>
+</g>
+<rect x="273" y="168" width="64" height="44" rx="5" fill="#E8A33D"/>
+<polyline points="273,168 305,194 337,168" fill="none" stroke="#FBFCFA" stroke-width="3"/>
+<rect x="328" y="338" width="64" height="44" rx="5" fill="#2856C2"/>
+<polyline points="328,338 360,364 392,338" fill="none" stroke="#FBFCFA" stroke-width="3"/>
+<rect x="383" y="508" width="64" height="44" rx="5" fill="#142019"/>
+<polyline points="383,508 415,534 447,508" fill="none" stroke="#FBFCFA" stroke-width="3"/>
+<rect x="40" y="300" width="140" height="110" rx="10" fill="#142019"/>
+<rect x="52" y="312" width="116" height="80" rx="4" fill="#3C4842"/>
+<rect x="95" y="410" width="30" height="20" fill="#142019"/>
+<rect x="70" y="430" width="80" height="10" rx="4" fill="#142019"/>
+<rect x="540" y="300" width="140" height="110" rx="10" fill="#142019"/>
+<rect x="552" y="312" width="116" height="80" rx="4" fill="#3C4842"/>
+<rect x="595" y="410" width="30" height="20" fill="#142019"/>
+<rect x="570" y="430" width="80" height="10" rx="4" fill="#142019"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">1962 · anos 1960</p>
+          <h3>A ideia de uma rede</h3>
+          <p>Licklider, do MIT, imagina uma “Rede Galáctica”. Baran e Davies propõem a comutação de pacotes: a mensagem viaja em pedaços, por caminhos diferentes.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p1-arpanet:0" aria-label="Um terminal de computador antigo com as letras LO na tela e o cursor parado" viewBox="0 0 600 520">
+<rect x="40" y="20" width="520" height="400" rx="36" fill="#C9D1CB"/>
+<rect x="70" y="48" width="460" height="330" rx="24" fill="#8E9A93"/>
+<rect x="90" y="66" width="420" height="294" rx="18" fill="#142019"/>
+<g fill="#E8A33D">
+<rect x="150" y="130" width="24" height="168"/>
+<rect x="150" y="274" width="120" height="24"/>
+<rect x="324" y="130" width="72" height="24"/>
+<rect x="324" y="274" width="72" height="24"/>
+<rect x="300" y="154" width="24" height="120"/>
+<rect x="396" y="154" width="24" height="120"/>
+<rect x="444" y="274" width="48" height="24" opacity="0.6"/>
+</g>
+<polygon points="250,420 350,420 370,460 230,460" fill="#8E9A93"/>
+<rect x="170" y="460" width="260" height="22" rx="8" fill="#8E9A93"/>
+<polygon points="60,494 540,494 560,516 40,516" fill="#5F6B65"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">29 de outubro de 1969</p>
+          <h3>“LO”: a primeira mensagem</h3>
+          <p>A ARPANET liga UCLA, SRI, UCSB e Utah. A palavra enviada seria LOGIN, mas o sistema travou depois de duas letras.</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p1-email:0" aria-label="Um envelope com uma carta saindo e um selo com o símbolo de arroba" viewBox="80 90 558 488">
+<rect x="150" y="120" width="400" height="170" rx="6" fill="#FBFCFA" stroke="#142019" stroke-width="4"/>
+<rect x="180" y="150" width="240" height="12" fill="#C9D1CB"/>
+<rect x="180" y="176" width="300" height="12" fill="#C9D1CB"/>
+<rect x="180" y="202" width="200" height="12" fill="#C9D1CB"/>
+<rect x="128" y="228" width="480" height="320" rx="18" fill="#C9D1CB"/>
+<rect x="110" y="210" width="480" height="320" rx="18" fill="#FBFCFA" stroke="#142019" stroke-width="6"/>
+<line x1="116" y1="524" x2="300" y2="380" stroke="#142019" stroke-width="4" opacity="0.35"/>
+<line x1="584" y1="524" x2="400" y2="380" stroke="#142019" stroke-width="4" opacity="0.35"/>
+<polyline points="116,216 350,400 584,216" fill="none" stroke="#142019" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="350" cy="400" r="86" fill="#E8A33D"/>
+<text x="350" y="438" text-anchor="middle" font-family="Saira, Arial, sans-serif" font-weight="800" font-size="110" fill="#142019">@</text></svg></figure>
+        <div class="cena-texto">
+          <p class="data">1971</p>
+          <h3>O e-mail muda o uso da rede</h3>
+          <p>Ray Tomlinson usa o @ para separar usuário e computador. A rede feita para compartilhar máquinas vira um meio de conversa.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro claro">
+          <svg class="ilu" role="img" viewBox="0 0 480 300" aria-label="Três redes diferentes, ARPANET, PRNET e SATNET, ligadas por uma camada comum chamada TCP/IP">
+            <g fill="#FBFCFA" stroke="#142019" stroke-width="3">
+              <rect x="10" y="20" width="140" height="74" rx="10"/><rect x="170" y="20" width="140" height="74" rx="10"/><rect x="330" y="20" width="140" height="74" rx="10"/>
+            </g>
+            <g font-family="Saira, Arial, sans-serif" font-weight="700" font-size="19" fill="#142019" text-anchor="middle">
+              <text x="80" y="55">ARPANET</text><text x="240" y="55">PRNET</text><text x="400" y="55">SATNET</text>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="13" fill="#5F6B65" text-anchor="middle">
+              <text x="80" y="78">cabo</text><text x="240" y="78">rádio</text><text x="400" y="78">satélite</text>
+            </g>
+            <g stroke="#142019" stroke-width="3"><line x1="80" y1="94" x2="80" y2="176"/><line x1="240" y1="94" x2="240" y2="176"/><line x1="400" y1="94" x2="400" y2="176"/></g>
+            <g fill="#142019"><polygon points="72,172 88,172 80,188"/><polygon points="232,172 248,172 240,188"/><polygon points="392,172 408,172 400,188"/></g>
+            <rect x="10" y="190" width="460" height="86" rx="12" fill="#142019"/>
+            <text x="240" y="232" text-anchor="middle" font-family="Saira, Arial, sans-serif" font-weight="800" font-size="32" fill="#E8A33D">TCP/IP</text>
+            <text x="240" y="258" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#BAC5BE">a língua comum das redes</text>
+          </svg>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">1974 · 1983</p>
+          <h3>TCP/IP: a rede de redes</h3>
+          <p>Vint Cerf e Bob Kahn criam uma língua comum para redes diferentes. Em 1º de janeiro de 1983, a ARPANET adota o TCP/IP: nasce a Internet.</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p1-web:0" aria-label="Um computador NeXT em forma de cubo, com etiqueta, ao lado de um monitor mostrando uma página da Web com links" viewBox="10 230 700 372">
+<rect x="40" y="560" width="640" height="12" rx="6" fill="#C9D1CB"/>
+<rect x="70" y="330" width="230" height="230" fill="#142019"/>
+<polygon points="70,330 130,280 360,280 300,330" fill="#3C4842"/>
+<polygon points="300,330 360,280 360,510 300,560" fill="#0B120E"/>
+<rect x="100" y="372" width="150" height="60" rx="4" fill="#FBFCFA"/>
+<rect x="112" y="384" width="126" height="8" fill="#8A5A00"/>
+<rect x="112" y="400" width="104" height="8" fill="#8A5A00"/>
+<rect x="112" y="416" width="80" height="6" fill="#8A5A00" opacity="0.6"/>
+<rect x="380" y="260" width="290" height="230" rx="12" fill="#142019"/>
+<rect x="396" y="276" width="258" height="182" rx="4" fill="#FBFCFA"/>
+<rect x="396" y="276" width="258" height="22" fill="#C9D1CB"/>
+<rect x="410" y="312" width="140" height="12" fill="#142019"/>
+<rect x="410" y="336" width="130" height="7" fill="#8E9A93"/>
+<rect x="410" y="350" width="120" height="7" fill="#8E9A93"/>
+<rect x="410" y="364" width="134" height="7" fill="#8E9A93"/>
+<rect x="410" y="386" width="80" height="7" fill="#2856C2"/>
+<rect x="500" y="386" width="60" height="7" fill="#2856C2"/>
+<rect x="410" y="402" width="110" height="7" fill="#2856C2"/>
+<rect x="560" y="312" width="80" height="60" fill="#E4EAE3"/>
+<polygon points="566,366 590,336 606,354 618,342 634,366" fill="#8E9A93"/>
+<circle cx="620" cy="326" r="7" fill="#E8A33D"/>
+<rect x="410" y="424" width="220" height="7" fill="#8E9A93"/>
+<rect x="410" y="438" width="180" height="7" fill="#8E9A93"/>
+<rect x="500" y="490" width="50" height="56" fill="#142019"/>
+<rect x="460" y="546" width="130" height="14" rx="6" fill="#142019"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">CERN, Suíça · 1989–1991</p>
+          <h3>Tim Berners-Lee cria a Web</h3>
+          <p class="citacao">“Vague but exciting...”</p>
+          <small>A anotação do chefe dele na proposta: “vaga, mas empolgante”.</small>
+          <ul class="chips"><li>HTML</li><li>HTTP</li><li>URL</li></ul>
+        </div>
+      </article>
+      <article class="cena">
+        <div class="visual comparar">
+          <figure class="quadro escuro"><svg class="ilu" role="img" data-src="p1-internet-web:0" aria-label="Computadores ligados por cabos, formando uma rede" viewBox="0 0 360 160">
+<g stroke="#8E9A93" stroke-width="4">
+<line x1="30" y1="80" x2="120" y2="30"/><line x1="30" y1="80" x2="120" y2="130"/><line x1="120" y1="30" x2="120" y2="130"/>
+<line x1="120" y1="30" x2="220" y2="80"/><line x1="120" y1="130" x2="220" y2="80"/><line x1="220" y1="80" x2="320" y2="30"/>
+<line x1="220" y1="80" x2="320" y2="130"/><line x1="320" y1="30" x2="320" y2="130"/>
+</g>
+<g fill="#E8A33D">
+<circle cx="30" cy="80" r="12"/><circle cx="120" cy="30" r="12"/><circle cx="120" cy="130" r="12"/>
+<circle cx="220" cy="80" r="12"/><circle cx="320" cy="30" r="12"/><circle cx="320" cy="130" r="12"/>
+</g>
+</svg><figcaption><b>Internet</b>a infraestrutura</figcaption></figure>
+          <figure class="quadro claro"><svg class="ilu" role="img" data-src="p1-internet-web:1" aria-label="Uma janela de navegador com uma página e links" viewBox="0 0 360 160">
+<rect x="6" y="6" width="348" height="148" rx="10" fill="#FBFCFA" stroke="#142019" stroke-width="4"/>
+<rect x="6" y="6" width="348" height="30" rx="10" fill="#142019"/>
+<rect x="6" y="22" width="348" height="14" fill="#142019"/>
+<circle cx="24" cy="21" r="5" fill="#8E9A93"/><circle cx="40" cy="21" r="5" fill="#8E9A93"/><circle cx="56" cy="21" r="5" fill="#8E9A93"/>
+<rect x="24" y="52" width="160" height="14" fill="#142019"/>
+<rect x="24" y="78" width="300" height="8" fill="#C9D1CB"/>
+<rect x="24" y="96" width="260" height="8" fill="#C9D1CB"/>
+<rect x="24" y="118" width="110" height="8" fill="#2856C2"/>
+<rect x="150" y="118" width="90" height="8" fill="#2856C2"/>
+</svg><figcaption><b>Web</b>um serviço sobre ela</figcaption></figure>
+        </div>
+        <div class="cena-texto">
+          <p class="data">1993</p>
+          <h3>Internet e Web não são a mesma coisa</h3>
+          <p>Em 1993, o CERN libera a Web para uso livre e o navegador Mosaic passa a mostrar imagens. A Web decola.</p>
+        </div>
+      </article>
+    </div>
+    <a class="proxima" href="#parte-2"><span class="rotulo">Parte 2 →</span><span>Como a Internet saiu das universidades e chegou às casas?</span></a>
+  </div>
+</section>
+
+<!-- ================= PARTE 2 ================= -->
+<section class="parte alt" id="parte-2" aria-labelledby="t2">
+  <div class="wrap">
+    <header class="parte-cab">
+      <span class="numeral" aria-hidden="true">2</span>
+      <div>
+        <p class="rotulo">Parte 2 de 5 · 1990–2000</p>
+        <h2 id="t2">A popularização da Internet nos anos 1990</h2>
+        <p class="pergunta-parte">O que fez a Internet entrar no dia a dia das pessoas?</p>
+      </div>
+    </header>
+    <div class="cenas">
+      <article class="cena">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p2-comercial:0" aria-label="Uma janela de navegador dos anos 1990 com uma loja virtual vendendo um livro, e um gráfico de ações subindo" viewBox="0 0 720 720">
+<rect x="60" y="110" width="560" height="400" rx="8" fill="#FBFCFA" stroke="#142019" stroke-width="5"/>
+<rect x="60" y="110" width="560" height="40" rx="8" fill="#142019"/>
+<rect x="60" y="130" width="560" height="20" fill="#142019"/>
+<rect x="532" y="120" width="18" height="18" fill="#8E9A93"/><rect x="558" y="120" width="18" height="18" fill="#8E9A93"/><rect x="584" y="120" width="18" height="18" fill="#8E9A93"/>
+<rect x="63" y="150" width="554" height="46" fill="#E4EAE3"/>
+<circle cx="94" cy="173" r="13" fill="#5F6B65"/><circle cx="126" cy="173" r="13" fill="#5F6B65"/>
+<rect x="152" y="162" width="370" height="24" rx="4" fill="#FBFCFA" stroke="#8E9A93" stroke-width="2"/>
+<rect x="560" y="158" width="36" height="32" rx="4" fill="#142019"/>
+<circle cx="578" cy="174" r="8" fill="#E8A33D"/>
+<rect x="90" y="222" width="180" height="160" fill="#E4EAE3"/>
+<rect x="140" y="246" width="80" height="110" fill="#8A5A00"/>
+<rect x="140" y="246" width="12" height="110" fill="#142019" opacity="0.25"/>
+<rect x="300" y="232" width="260" height="16" fill="#142019"/>
+<rect x="300" y="264" width="280" height="8" fill="#8E9A93"/>
+<rect x="300" y="280" width="250" height="8" fill="#8E9A93"/>
+<rect x="300" y="296" width="210" height="8" fill="#8E9A93"/>
+<rect x="300" y="318" width="100" height="16" fill="#8A5A00"/>
+<rect x="300" y="350" width="150" height="40" rx="8" fill="#E8A33D"/>
+<rect x="330" y="366" width="90" height="8" fill="#142019"/>
+<rect x="380" y="430" width="300" height="210" rx="14" fill="#142019"/>
+<line x1="405" y1="620" x2="660" y2="620" stroke="#3C4842" stroke-width="2"/>
+<polyline points="405,610 450,585 490,595 530,540 570,550 615,480 655,462" fill="none" stroke="#E8A33D" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="655" cy="462" r="9" fill="#E8A33D"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">1991 · 1995</p>
+          <h3>A Internet vira negócio</h3>
+          <p>Navegadores fáceis, como Mosaic, Netscape e Internet Explorer, e a rede liberada para empresas. Em 1995, a Netscape estreia na bolsa.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <div class="cena-texto" style="grid-column:1 / -1">
+          <p class="data">Brasil · 1988–1995</p>
+          <h3>A Internet chega ao Brasil</h3>
+          <ol class="trilho" style="--n:4;margin-top:.75rem">
+            <li><b>1988</b><span>1ª conexão acadêmica</span></li>
+            <li><b>1989</b><span>criação da RNP</span></li>
+            <li><b>1992</b><span>rede nacional na Rio-92</span></li>
+            <li><b>1995</b><span>Internet comercial e CGI.br</span></li>
+          </ol>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro escuro"><svg class="ilu" role="img" data-src="p2-discada:0" aria-label="De madrugada, um computador baixa um arquivo devagar por um modem barulhento ligado ao telefone" viewBox="0 0 720 720">
+<circle cx="600" cy="110" r="50" fill="#E8A33D"/>
+<circle cx="622" cy="94" r="46" fill="#142019"/>
+<g fill="#8E9A93">
+<circle cx="480" cy="80" r="2.5"/><circle cx="530" cy="160" r="2"/><circle cx="660" cy="200" r="2.5"/><circle cx="420" cy="140" r="2"/><circle cx="690" cy="60" r="2"/><circle cx="360" cy="70" r="2"/>
+</g>
+<rect x="30" y="531" width="660" height="14" rx="7" fill="#2E3D35"/>
+<path d="M 370 470 C 400 520 420 505 430 500" fill="none" stroke="#8E9A93" stroke-width="3"/>
+<path d="M 580 500 C 590 520 590 525 597 515" fill="none" stroke="#8E9A93" stroke-width="3"/>
+<rect x="70" y="200" width="330" height="280" rx="26" fill="#C9D1CB"/>
+<rect x="100" y="228" width="270" height="200" rx="14" fill="#0F1512"/>
+<rect x="130" y="280" width="150" height="10" fill="#5F6B65"/>
+<rect x="130" y="298" width="110" height="10" fill="#5F6B65"/>
+<rect x="130" y="340" width="210" height="24" rx="6" fill="none" stroke="#8E9A93" stroke-width="2"/>
+<rect x="134" y="344" width="56" height="16" rx="4" fill="#E8A33D"/>
+<polygon points="200,480 270,480 285,515 185,515" fill="#8E9A93"/>
+<rect x="150" y="515" width="170" height="16" rx="6" fill="#8E9A93"/>
+<rect x="430" y="475" width="150" height="56" rx="10" fill="#C9D1CB"/>
+<circle cx="455" cy="503" r="6" fill="#E8A33D"/><circle cx="478" cy="503" r="6" fill="#E8A33D"/><circle cx="501" cy="503" r="6" fill="#5F6B65"/><circle cx="524" cy="503" r="6" fill="#E8A33D"/>
+<rect x="545" y="490" width="20" height="4" fill="#8E9A93"/><rect x="545" y="500" width="20" height="4" fill="#8E9A93"/><rect x="545" y="510" width="20" height="4" fill="#8E9A93"/>
+<g fill="none" stroke="#E8A33D" stroke-width="3" stroke-linecap="round">
+<path d="M 470 455 Q 505 430 540 455"/>
+<path d="M 455 440 Q 505 405 555 440" opacity="0.6"/>
+<path d="M 440 425 Q 505 380 570 425" opacity="0.3"/>
+</g>
+<rect x="595" y="480" width="100" height="51" rx="14" fill="#5F6B65"/>
+<rect x="585" y="458" width="120" height="26" rx="13" fill="#8E9A93"/>
+<g fill="#3C4842">
+<circle cx="625" cy="500" r="3"/><circle cx="645" cy="500" r="3"/><circle cx="665" cy="500" r="3"/><circle cx="625" cy="515" r="3"/><circle cx="645" cy="515" r="3"/><circle cx="665" cy="515" r="3"/>
+</g>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Anos 1990</p>
+          <h3>A era da Internet discada</h3>
+          <p class="grande">56k</p>
+          <p>Lenta, barulhenta e com o telefone ocupado. Depois da meia-noite, a conexão ficava mais barata.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <div class="cena-texto" style="grid-column:1 / -1">
+          <p class="data">1995 · 1999</p>
+          <h3>O que as pessoas faziam on-line</h3>
+          <div class="blocos" style="margin-top:.75rem">
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><polyline points="3.5,7 12,13 20.5,7"/></svg></span><div><b>E-mail</b><span>Hotmail · 1996</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg></span><div><b>Portais</b><span>UOL · 1996</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" aria-label="Logotipo do Google" role="img"><path fill="currentColor" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></span><div><b>Busca</b><span>Cadê? · Google</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4 H19 Q21 4 21 6 V14 Q21 16 19 16 H11 L7 20 V16 H5 Q3 16 3 14 V6 Q3 4 5 4 Z"/></svg></span><div><b>Bate-papo</b><span>salas por assunto</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" aria-label="Logotipo do ICQ" role="img"><path fill="currentColor" d="M10.189 0a3.784 3.784 0 0 0-3.055 5.93l1.741 2.562a1.855 1.855 0 0 0 3.334-.13l1.454-2.929h-.006A3.784 3.784 0 0 0 10.189 0zm9.173 4.496a4.235 4.235 0 0 0-1.662.306 4.23 4.23 0 0 0-1.817 1.396l-2.214 2.837c-.025.032-.05.063-.074.096l-.01.012a2.088 2.088 0 0 0 1.509 3.306l3.614.536-.003-.007a4.259 4.259 0 0 0 4.532-5.807 4.264 4.264 0 0 0-3.875-2.675zM3.586 7.242A3.154 3.154 0 0 0 .55 9.628a3.151 3.151 0 0 0 3.903 3.804l2.539-.737a1.545 1.545 0 0 0 .742-2.673L5.79 8.118v.005a3.13 3.13 0 0 0-2.204-.881zM13.9 13.959a1.886 1.886 0 0 0-1.858 2.233l.387 3.263.005-.003a3.846 3.846 0 0 0 6.134 2.574 3.846 3.846 0 0 0-.9-6.645l-2.877-1.197a1.89 1.89 0 0 0-.89-.225zm-5.55.08c-.377 0-.75.104-1.076.3L4.06 16.018l.006.003a4.21 4.21 0 0 0-1.593 1.485 4.24 4.24 0 0 0 1.342 5.843 4.239 4.239 0 0 0 5.845-1.332 4.21 4.21 0 0 0 .647-2.172l.108-3.45a2.079 2.079 0 0 0-2.062-2.356z"/></svg></span><div><b>Mensageiros</b><span>ICQ · MSN</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" aria-label="Logotipo do Napster" role="img"><path fill="currentColor" d="M20.495 4.543c-.22 0-.438 0-.657.03h-.031l-.032-.03C17.93 2.21 15.02.798 12.015.798c-3.004 0-5.945 1.412-7.76 3.775l-.031.03h-.031c-.22-.03-.439-.03-.658-.03H2.16v2.394l-.032.03A3.628 3.628 0 0 0 0 10.282c0 1.412.844 2.701 2.127 3.284h.063v.062c.031 5.278 4.443 9.575 9.825 9.575s9.794-4.297 9.825-9.575v-.062l.032-.03C23.155 12.92 24 11.632 24 10.25c0-1.412-.845-2.7-2.128-3.284l-.032-.03V4.542zM6.821 5.34a7.443 7.443 0 0 1 5.194-2.117c1.94 0 3.818.767 5.195 2.117l.062.062-.094.061c-.375.215-.72.43-1.064.675l-.03.031-.032-.03c-.908-.461-2.347-.983-4.005-.983s-3.098.522-4.006.982l-.03.031-.032-.03a10.22 10.22 0 0 0-1.064-.676l-.188-.061zm12.329 8.195c0 3.866-3.223 7.027-7.166 7.027-3.942 0-7.134-3.16-7.134-7.027V7.458l.094.03c1.252.308 2.44 1.658 2.722 1.996.313-.338 1.784-1.658 4.35-1.658 2.565 0 4.036 1.35 4.35 1.658.28-.338 1.438-1.688 2.721-1.995l.094-.031v6.077z"/></svg></span><div><b>Música</b><span>Napster · 1999</span></div></div>
+          </div>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro">
+          <div style="width:100%">
+            <div class="duas" role="img" aria-label="Usuários de Internet no mundo: 16 milhões em 1995 e 361 milhões em 2000">
+              <div><span>16 mi</span><i style="height:3.77%"></i></div>
+              <div><span>361 mi</span><i style="height:85%"></i></div>
+            </div>
+            <div class="duas-anos" aria-hidden="true"><span>1995</span><span>2000</span></div>
+            <p class="duas-fonte">Usuários de Internet no mundo · Internet World Stats</p>
+          </div>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">1995 · 2000</p>
+          <h3>Comércio eletrônico e a bolha</h3>
+          <p>Surgem Amazon, eBay, Mercado Livre e Submarino. Em março de 2000, a bolha ponto-com estoura, mas a Internet continua crescendo.</p>
+        </div>
+      </article>
+    </div>
+    <a class="proxima" href="#parte-3"><span class="rotulo">Parte 3 →</span><span>E se os próprios usuários criassem perfis e se conectassem uns aos outros?</span></a>
+  </div>
+</section>
+
+<!-- ================= PARTE 3 ================= -->
+<section class="parte" id="parte-3" aria-labelledby="t3">
+  <div class="wrap">
+    <header class="parte-cab">
+      <span class="numeral" aria-hidden="true">3</span>
+      <div>
+        <p class="rotulo">Parte 3 de 5 · 1997–2006</p>
+        <h2 id="t3">O nascimento das redes sociais</h2>
+        <p class="pergunta-parte">Como a Internet virou um lugar de relacionamento?</p>
+      </div>
+    </header>
+    <div class="cenas">
+      <article class="cena">
+        <div class="cena-texto" style="grid-column:1 / -1">
+          <p class="data">1978 · 1994</p>
+          <h3>Comunidades on-line antes das redes sociais</h3>
+          <ol class="trilho" style="--n:5;margin-top:.75rem">
+            <li><b>1978</b><strong>BBS</strong><span>mural por telefone</span></li>
+            <li><b>1980</b><strong>Usenet</strong><span>grupos por assunto</span></li>
+            <li><b>1985</b><strong>The WELL</strong><span>comunidade virtual</span></li>
+            <li><b>1988</b><strong>IRC</strong><span>bate-papo ao vivo</span></li>
+            <li><b>1994</b><strong>GeoCities</strong><span>páginas pessoais</span></li>
+          </ol>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p3-sixdegrees:0" aria-label="Uma corrente de sete pessoas, ligando você a um desconhecido em seis passos" viewBox="0 270 720 313">
+<polyline points="70,470 165,340 260,470 355,340 450,470 545,340 640,470" fill="none" stroke="#5F6B65" stroke-width="4" stroke-linejoin="round"/>
+<g fill="#E8A33D">
+<circle cx="117.5" cy="405" r="18"/><circle cx="212.5" cy="405" r="18"/><circle cx="307.5" cy="405" r="18"/>
+<circle cx="402.5" cy="405" r="18"/><circle cx="497.5" cy="405" r="18"/><circle cx="592.5" cy="405" r="18"/>
+</g>
+<g fill="#FBFCFA" stroke="#142019" stroke-width="3">
+<circle cx="165" cy="340" r="40"/><circle cx="260" cy="470" r="40"/><circle cx="355" cy="340" r="40"/>
+<circle cx="450" cy="470" r="40"/><circle cx="545" cy="340" r="40"/>
+</g>
+<circle cx="70" cy="470" r="40" fill="#E8A33D"/>
+<circle cx="640" cy="470" r="40" fill="#2856C2"/>
+<g fill="#142019">
+<circle cx="70" cy="463" r="12"/><path d="M48 495 Q70 471 92 495 Z"/>
+<circle cx="165" cy="333" r="12"/><path d="M143 365 Q165 341 187 365 Z"/>
+<circle cx="260" cy="463" r="12"/><path d="M238 495 Q260 471 282 495 Z"/>
+<circle cx="355" cy="333" r="12"/><path d="M333 365 Q355 341 377 365 Z"/>
+<circle cx="450" cy="463" r="12"/><path d="M428 495 Q450 471 472 495 Z"/>
+<circle cx="545" cy="333" r="12"/><path d="M523 365 Q545 341 567 365 Z"/>
+</g>
+<circle cx="640" cy="463" r="12" fill="#FBFCFA"/>
+<path d="M618 495 Q640 471 662 495 Z" fill="#FBFCFA"/>
+<text x="117.5" y="413" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">1</text><text x="212.5" y="413" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">2</text><text x="307.5" y="413" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">3</text><text x="402.5" y="413" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">4</text><text x="497.5" y="413" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">5</text><text x="592.5" y="413" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">6</text><text x="70" y="548" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">você</text><text x="640" y="548" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="20" fill="#142019">desconhecido</text></svg></figure>
+        <div class="cena-texto">
+          <p class="data">1967 → 1997</p>
+          <h3>SixDegrees, a primeira rede social</h3>
+          <p class="grande">6</p>
+          <p>Os “seis graus de separação” de Stanley Milgram viram site em 1997.</p>
+          <ul class="chips"><li>perfil</li><li>lista de amigos</li><li>amigos dos amigos</li></ul>
+        </div>
+      </article>
+      <article class="cena">
+        <div class="cena-texto" style="grid-column:1 / -1">
+          <p class="data">2002 · 2003</p>
+          <h3>As redes ganham fotos, música e trabalho</h3>
+          <div class="blocos" style="margin-top:.75rem">
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2" fill="currentColor"/><path d="M3 19 Q9 11 15 19 Z" fill="currentColor"/><circle cx="16.5" cy="8.5" r="2.6" fill="currentColor" opacity=".6"/><path d="M12.5 18 Q16.5 12 20.5 18 Z" fill="currentColor" opacity=".6"/></svg></span><div><b>Friendster</b><span>2002 · amigos de amigos</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7 L9.5 4.5 H14.5 L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><div><b>Fotolog</b><span>2002 · uma foto por dia</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" aria-label="Logotipo do MySpace" role="img"><path fill="currentColor" d="M19.802 12.274A3.811 3.811 0 0023.62 8.47c0-2.101-1.71-3.795-3.818-3.795a3.816 3.816 0 00-3.818 3.81 3.817 3.817 0 003.818 3.811zm-8.602.705a3.43 3.43 0 003.435-3.424A3.43 3.43 0 0011.2 6.13a3.44 3.44 0 00-3.436 3.436A3.436 3.436 0 0011.2 13zm-7.8.635c1.71 0 3.093-1.38 3.093-3.081 0-1.704-1.395-3.084-3.105-3.084A3.086 3.086 0 00.3 10.539c0 1.7 1.387 3.078 3.095 3.078zm0 .705c-1.96 0-3.4 1.717-3.4 3.495v1.196c0 .17.138.31.31.31h6.18a.31.31 0 00.309-.31v-1.196c0-1.779-1.437-3.5-3.398-3.5zm7.8-.56c-2.18 0-3.78 1.915-3.78 3.891v1.331c0 .188.156.344.345.344h6.87a.344.344 0 00.342-.344V17.65c0-1.976-1.598-3.891-3.777-3.891zm8.602-.617c-2.422 0-4.197 2.126-4.197 4.323v1.477c0 .21.172.381.382.381h7.63c.21 0 .383-.171.383-.381v-1.477c-.001-2.197-1.776-4.323-4.198-4.323z"/></svg></span><div><b>MySpace</b><span>2003 · perfis e bandas</span></div></div>
+            <div class="bloco"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8 V6 Q9 4.5 10.5 4.5 H13.5 Q15 4.5 15 6 V8"/><line x1="3" y1="13" x2="21" y2="13"/></svg></span><div><b>LinkedIn</b><span>2003 · contatos de trabalho</span></div></div>
+          </div>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p3-orkut:0" aria-label="Desenho de uma página de perfil de rede social com foto, recados, depoimentos, comunidades e amigos" viewBox="0 0 720 720">
+<rect x="40" y="90" width="640" height="540" rx="14" fill="#FBFCFA" stroke="#142019" stroke-width="4"/>
+<rect x="42" y="92" width="636" height="50" rx="12" fill="#2856C2"/>
+<rect x="42" y="120" width="636" height="22" fill="#2856C2"/>
+<rect x="70" y="112" width="60" height="8" rx="4" fill="#FBFCFA" opacity="0.85"/>
+<rect x="145" y="112" width="60" height="8" rx="4" fill="#FBFCFA" opacity="0.85"/>
+<rect x="220" y="112" width="60" height="8" rx="4" fill="#FBFCFA" opacity="0.85"/>
+<rect x="430" y="105" width="230" height="24" rx="12" fill="#FBFCFA"/>
+<rect x="70" y="165" width="150" height="150" rx="10" fill="#C9D1CB"/>
+<circle cx="145" cy="222" r="34" fill="#8E9A93"/>
+<path d="M95 315 Q145 252 195 315 Z" fill="#8E9A93"/>
+<rect x="70" y="332" width="130" height="14" fill="#142019"/>
+<rect x="70" y="356" width="100" height="10" fill="#8E9A93"/>
+<rect x="70" y="392" width="120" height="10" fill="#C9D1CB"/>
+<rect x="70" y="416" width="120" height="10" fill="#C9D1CB"/>
+<rect x="70" y="440" width="120" height="10" fill="#C9D1CB"/>
+<rect x="255" y="165" width="120" height="12" fill="#142019"/>
+<circle cx="275" cy="225" r="20" fill="#C9D1CB"/>
+<rect x="305" y="195" width="190" height="60" rx="12" fill="#E8A33D"/>
+<rect x="320" y="211" width="150" height="8" fill="#8A5A00"/>
+<rect x="320" y="229" width="110" height="8" fill="#8A5A00"/>
+<circle cx="275" cy="315" r="20" fill="#C9D1CB"/>
+<rect x="305" y="285" width="190" height="60" rx="12" fill="#E4EAE3"/>
+<rect x="320" y="301" width="150" height="8" fill="#8E9A93"/>
+<rect x="320" y="319" width="110" height="8" fill="#8E9A93"/>
+<circle cx="275" cy="405" r="20" fill="#C9D1CB"/>
+<rect x="305" y="375" width="190" height="60" rx="12" fill="#E4EAE3"/>
+<rect x="320" y="391" width="150" height="8" fill="#8E9A93"/>
+<rect x="320" y="409" width="110" height="8" fill="#8E9A93"/>
+<rect x="255" y="470" width="140" height="12" fill="#142019"/>
+<rect x="255" y="492" width="240" height="110" rx="10" fill="#FBFCFA" stroke="#C9D1CB" stroke-width="2"/>
+<rect x="272" y="512" width="200" height="8" fill="#8E9A93"/>
+<rect x="272" y="530" width="180" height="8" fill="#8E9A93"/>
+<rect x="272" y="548" width="196" height="8" fill="#8E9A93"/>
+<rect x="272" y="566" width="120" height="8" fill="#8E9A93"/>
+<rect x="520" y="165" width="110" height="12" fill="#142019"/>
+<rect x="520" y="190" width="50" height="50" rx="6" fill="#E8A33D"/>
+<rect x="580" y="190" width="50" height="50" rx="6" fill="#2856C2"/>
+<rect x="520" y="250" width="50" height="50" rx="6" fill="#8A5A00"/>
+<rect x="580" y="250" width="50" height="50" rx="6" fill="#5F6B65"/>
+<rect x="520" y="310" width="50" height="50" rx="6" fill="#C9D1CB"/>
+<rect x="580" y="310" width="50" height="50" rx="6" fill="#142019"/>
+<rect x="520" y="380" width="80" height="12" fill="#142019"/>
+<g fill="#8E9A93">
+<circle cx="534" cy="414" r="14"/><circle cx="569" cy="414" r="14"/><circle cx="604" cy="414" r="14"/>
+<circle cx="534" cy="449" r="14"/><circle cx="569" cy="449" r="14"/><circle cx="604" cy="449" r="14"/>
+<circle cx="534" cy="484" r="14"/><circle cx="569" cy="484" r="14"/><circle cx="604" cy="484" r="14"/>
+</g>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Janeiro de 2004</p>
+          <h3>O Orkut vira a rede social do Brasil</h3>
+          <p class="citacao">Os brasileiros eram a maioria dos usuários.</p>
+          <ul class="chips"><li>scraps</li><li>depoimentos</li><li>comunidades</li><li>fãs</li></ul>
+          <small>Desenho ilustrativo de um perfil, não a tela real. A rede durou de 2004 a 2014.</small>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro escuro"><svg class="ilu" role="img" data-src="p3-facebook:0" aria-label="Um feed de notícias com o logotipo do Facebook e três publicações de amigos" viewBox="0 0 720 720">
+<rect x="150" y="70" width="420" height="64" rx="12" fill="#2E3D35"/>
+<g transform="translate(170 82) scale(1.6667)"><path fill="#EEF2EC" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></g>
+<rect x="230" y="96" width="200" height="12" rx="6" fill="#3C4842"/>
+<rect x="150" y="150" width="420" height="160" rx="14" fill="#EEF2EC"/>
+<circle cx="192" cy="190" r="22" fill="#8E9A93"/>
+<rect x="226" y="178" width="140" height="12" fill="#142019"/>
+<rect x="226" y="198" width="80" height="8" fill="#8E9A93"/>
+<rect x="172" y="230" width="376" height="10" fill="#8E9A93"/>
+<rect x="172" y="250" width="300" height="10" fill="#8E9A93"/>
+<circle cx="184" cy="284" r="10" fill="#E8A33D"/>
+<rect x="202" y="280" width="60" height="8" fill="#8E9A93"/>
+<rect x="150" y="330" width="420" height="160" rx="14" fill="#EEF2EC"/>
+<circle cx="192" cy="370" r="22" fill="#8E9A93"/>
+<rect x="226" y="358" width="140" height="12" fill="#142019"/>
+<rect x="226" y="378" width="80" height="8" fill="#8E9A93"/>
+<rect x="172" y="410" width="376" height="10" fill="#8E9A93"/>
+<rect x="172" y="430" width="300" height="10" fill="#8E9A93"/>
+<circle cx="184" cy="464" r="10" fill="#E8A33D"/>
+<rect x="202" y="460" width="60" height="8" fill="#8E9A93"/>
+<rect x="150" y="510" width="420" height="160" rx="14" fill="#EEF2EC"/>
+<circle cx="192" cy="550" r="22" fill="#8E9A93"/>
+<rect x="226" y="538" width="140" height="12" fill="#142019"/>
+<rect x="226" y="558" width="80" height="8" fill="#8E9A93"/>
+<rect x="172" y="590" width="376" height="10" fill="#8E9A93"/>
+<rect x="172" y="610" width="300" height="10" fill="#8E9A93"/>
+<circle cx="184" cy="644" r="10" fill="#E8A33D"/>
+<rect x="202" y="640" width="60" height="8" fill="#8E9A93"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Fevereiro de 2004</p>
+          <h3>O Facebook sai de Harvard para o mundo</h3>
+          <ol class="trilho" style="--n:2">
+            <li><b>2006</b><span>aberto a todos, com Feed</span></li>
+            <li><b>2012</b><span>1 bilhão de usuários</span></li>
+          </ol>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro escuro">
+          <div style="display:grid;gap:1.25rem;justify-items:center;text-align:center">
+            <p style="font:800 clamp(4rem,12vw,7rem)/1 var(--f-display);color:#E8A33D">You</p>
+            <p style="font:600 var(--t-s)/1.4 var(--f-display);color:#EEF2EC;max-width:18rem">Personalidade do Ano de 2006 da revista Time: “Você”</p>
+          </div>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">2001 · 2006</p>
+          <h3>Web 2.0: o público produz o conteúdo</h3>
+          <div class="logos" aria-label="Wikipédia, YouTube e Twitter">
+            <svg viewBox="0 0 24 24" role="img" aria-label="Logotipo da Wikipédia"><path fill="currentColor" d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.24-1.122-.271C.103 5.033 0 4.982 0 4.898v-.455l.052-.045c.924-.005 5.401 0 5.401 0l.051.045v.434c0 .119-.075.176-.225.176l-.564.031c-.485.029-.727.164-.727.436 0 .135.053.33.166.601 1.082 2.646 4.818 10.521 4.818 10.521l.136.046 2.411-4.81-.482-1.067-1.658-3.264s-.318-.654-.428-.872c-.728-1.443-.712-1.518-1.447-1.617-.207-.023-.313-.05-.313-.149v-.468l.06-.045h4.292l.113.037v.451c0 .105-.076.15-.227.15l-.308.047c-.792.061-.661.381-.136 1.422l1.582 3.252 1.758-3.504c.293-.64.233-.801.111-.947-.07-.084-.305-.22-.812-.24l-.201-.021c-.052 0-.098-.015-.145-.051-.045-.031-.067-.076-.067-.129v-.427l.061-.045c1.247-.008 4.043 0 4.043 0l.059.045v.436c0 .121-.059.178-.193.178-.646.03-.782.095-1.023.439-.12.186-.375.589-.646 1.039l-2.301 4.273-.065.135 2.792 5.712.17.048 4.396-10.438c.154-.422.129-.722-.064-.895-.197-.172-.346-.273-.857-.295l-.42-.016c-.061 0-.105-.014-.152-.045-.043-.029-.072-.075-.072-.119v-.436l.059-.045h4.961l.041.045v.437c0 .119-.074.18-.209.18-.648.03-1.127.18-1.443.421-.314.255-.557.616-.736 1.067 0 0-4.043 9.258-5.426 12.339-.525 1.007-1.053.917-1.503-.031-.571-1.171-1.773-3.786-2.646-5.71l.053-.036z"/></svg>
+            <svg viewBox="0 0 24 24" role="img" aria-label="Logotipo do YouTube"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" role="img" aria-label="Balão de mensagem curta"><path d="M5 4 H19 Q21 4 21 6 V14 Q21 16 19 16 H11 L7 20 V16 H5 Q3 16 3 14 V6 Q3 4 5 4 Z"/></svg>
+          </div>
+          <p>Wikipédia (2001), YouTube (2005) e Twitter (2006): quem usa também cria.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <div class="cena-texto" style="grid-column:1 / -1">
+          <p class="data">A mudança em três frases</p>
+          <h3>Do leitor ao produtor de conteúdo</h3>
+          <ol class="tres" style="margin-top:.75rem">
+            <li><span class="rotulo">Web inicial</span><p>“Eu entro em um site e leio.”</p></li>
+            <li><span class="rotulo">Fóruns e chats</span><p>“Eu entro e converso.”</p></li>
+            <li><span class="rotulo">Redes sociais</span><p>“Eu tenho um perfil, adiciono pessoas e publico.”</p></li>
+          </ol>
+        </div>
+      </article>
+    </div>
+    <a class="proxima" href="#parte-4"><span class="rotulo">Parte 4 →</span><span>As redes começaram a mudar como as pessoas se comunicam, trabalham e se informam.</span></a>
+  </div>
+</section>
+
+<!-- ================= PARTE 4 ================= -->
+<section class="parte alt" id="parte-4" aria-labelledby="t4">
+  <div class="wrap">
+    <header class="parte-cab">
+      <span class="numeral" aria-hidden="true">4</span>
+      <div>
+        <p class="rotulo">Parte 4 de 5 · 2004–2013</p>
+        <h2 id="t4">Como as redes sociais transformaram a sociedade</h2>
+        <p class="pergunta-parte">O que mudou na comunicação, na informação, na cultura e no trabalho?</p>
+      </div>
+    </header>
+    <div class="cenas">
+      <article class="cena">
+        <figure class="fig">
+          <svg viewBox="0 0 480 170" role="img" aria-label="Tecnologia e sociedade ligadas por duas setas: a tecnologia muda comportamentos, e a sociedade decide como a tecnologia é usada">
+            <defs><marker id="seta-ts" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="d-ink"/></marker></defs>
+            <line class="d-linha" stroke-width="2.5" x1="130" y1="72" x2="346" y2="72" marker-end="url(#seta-ts)"/>
+            <line class="d-linha" stroke-width="2.5" x1="350" y1="108" x2="134" y2="108" marker-end="url(#seta-ts)"/>
+            <text class="d-sub" x="240" y="60" font-size="13" text-anchor="middle">muda comportamentos</text>
+            <text class="d-sub" x="240" y="130" font-size="13" text-anchor="middle">decide como ela é usada</text>
+            <rect class="d-caixa-escura" x="0" y="45" width="130" height="90" rx="10"/><text class="d-inv" x="65" y="96" font-size="16" text-anchor="middle">Tecnologia</text>
+            <rect class="d-caixa" x="350" y="45" width="130" height="90" rx="10"/><text class="d-txt" x="415" y="96" font-size="16" text-anchor="middle">Sociedade</text>
+          </svg>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">Tecnologia e sociedade</p>
+          <h3>Uma tecnologia não é só uma ferramenta</h3>
+          <p>A relação vai nos dois sentidos. Manuel Castells chamou esse mundo de “sociedade em rede” (1996).</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro escuro"><svg class="ilu" role="img" data-src="p4-comunicacao:0" aria-label="Um smartphone com uma conversa em andamento, cercado de balões de mensagem" viewBox="0 0 720 720">
+<rect x="40" y="180" width="150" height="72" rx="22" fill="#2E3D35"/>
+<polygon points="170,248 196,248 206,272" fill="#2E3D35"/>
+<rect x="62" y="202" width="96" height="8" rx="4" fill="#8E9A93"/>
+<rect x="62" y="222" width="70" height="8" rx="4" fill="#8E9A93"/>
+<rect x="530" y="400" width="150" height="72" rx="22" fill="#2E3D35"/>
+<polygon points="550,468 524,468 514,494" fill="#2E3D35"/>
+<rect x="552" y="422" width="96" height="8" rx="4" fill="#8E9A93"/>
+<rect x="552" y="442" width="70" height="8" rx="4" fill="#8E9A93"/>
+<rect x="230" y="60" width="260" height="560" rx="40" fill="#C9D1CB"/>
+<rect x="248" y="110" width="224" height="450" rx="10" fill="#0F1512"/>
+<rect x="325" y="82" width="70" height="10" rx="5" fill="#5F6B65"/>
+<circle cx="360" cy="590" r="14" fill="#8E9A93"/>
+<rect x="262" y="130" width="140" height="40" rx="14" fill="#3C4842"/>
+<rect x="318" y="182" width="140" height="40" rx="14" fill="#E8A33D"/>
+<rect x="262" y="234" width="110" height="40" rx="14" fill="#3C4842"/>
+<rect x="298" y="286" width="160" height="56" rx="14" fill="#E8A33D"/>
+<rect x="262" y="354" width="150" height="40" rx="14" fill="#3C4842"/>
+<rect x="262" y="414" width="74" height="32" rx="14" fill="#3C4842"/>
+<circle cx="283" cy="430" r="5" fill="#8E9A93"/><circle cx="299" cy="430" r="5" fill="#8E9A93"/><circle cx="315" cy="430" r="5" fill="#8E9A93"/>
+<rect x="262" y="510" width="196" height="34" rx="17" fill="#2E3D35"/>
+<circle cx="478" cy="72" r="26" fill="#E8A33D"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Comunicação · 2007–2009</p>
+          <h3>A conversa passa a acontecer o tempo todo</h3>
+          <div class="logos" aria-label="Apple, Android e WhatsApp">
+            <svg viewBox="0 0 24 24" role="img" aria-label="Logotipo da Apple"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            <svg viewBox="0 0 24 24" role="img" aria-label="Logotipo do Android"><path fill="currentColor" d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></svg>
+            <svg viewBox="0 0 24 24" role="img" aria-label="Logotipo do WhatsApp"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <p>iPhone (2007), Android (2008) e WhatsApp (2009) colocam as redes no bolso.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p4-informacao:0" aria-label="Um jornal e uma TV antigos, apagados, e uma seta para um celular que filma um avião pousado no rio" viewBox="0 0 720 720">
+<g opacity="0.55">
+<rect x="50" y="170" width="210" height="260" rx="6" fill="#FBFCFA" stroke="#8E9A93" stroke-width="3"/>
+<rect x="70" y="190" width="170" height="28" fill="#8E9A93"/>
+<g fill="#C9D1CB">
+<rect x="70" y="232" width="78" height="8"/><rect x="70" y="248" width="78" height="8"/><rect x="70" y="264" width="78" height="8"/><rect x="70" y="280" width="78" height="8"/><rect x="70" y="296" width="78" height="8"/>
+<rect x="162" y="232" width="78" height="8"/><rect x="162" y="248" width="78" height="8"/><rect x="162" y="264" width="78" height="8"/><rect x="162" y="280" width="78" height="8"/><rect x="162" y="296" width="78" height="8"/>
+<rect x="70" y="314" width="170" height="70"/><rect x="70" y="396" width="170" height="8"/><rect x="70" y="410" width="140" height="8"/>
+</g>
+<line x1="115" y1="470" x2="90" y2="420" stroke="#8E9A93" stroke-width="5" stroke-linecap="round"/>
+<line x1="195" y1="470" x2="220" y2="420" stroke="#8E9A93" stroke-width="5" stroke-linecap="round"/>
+<rect x="60" y="470" width="190" height="150" rx="18" fill="#8E9A93"/>
+<rect x="78" y="488" width="154" height="114" rx="10" fill="#C9D1CB"/>
+</g>
+<line x1="290" y1="400" x2="376" y2="400" stroke="#142019" stroke-width="6"/>
+<polygon points="376,386 404,400 376,414" fill="#142019"/>
+<rect x="430" y="140" width="240" height="460" rx="36" fill="#142019"/>
+<circle cx="550" cy="162" r="6" fill="#3C4842"/>
+<rect x="446" y="182" width="208" height="376" rx="8" fill="#E4EAE3"/>
+<rect x="456" y="380" width="30" height="40" fill="#C9D1CB"/>
+<rect x="490" y="360" width="24" height="60" fill="#C9D1CB"/>
+<rect x="520" y="390" width="34" height="30" fill="#C9D1CB"/>
+<rect x="600" y="370" width="40" height="50" fill="#C9D1CB"/>
+<rect x="446" y="420" width="208" height="138" rx="8" fill="#2856C2"/>
+<rect x="446" y="420" width="208" height="20" fill="#2856C2"/>
+<ellipse cx="550" cy="428" rx="64" ry="12" fill="#FBFCFA" stroke="#5F6B65" stroke-width="2"/>
+<polygon points="530,428 560,402 575,428" fill="#5F6B65"/>
+<polygon points="600,428 612,404 620,428" fill="#5F6B65"/>
+<circle cx="472" cy="204" r="9" fill="#E8A33D"/>
+<rect x="486" y="199" width="40" height="10" rx="5" fill="#8E9A93"/>
+<circle cx="550" cy="580" r="12" fill="#8E9A93"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Informação · 2009–2013</p>
+          <h3>Qualquer pessoa pode dar a notícia</h3>
+          <p>A foto do avião no rio Hudson (2009), a Primavera Árabe (2011) e os protestos de junho de 2013 no Brasil circularam primeiro nas redes.</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p4-cultura:0" aria-label="Uma imagem engraçada se espalhando de um celular para outros, até chegar a nove celulares" viewBox="0 0 720 720">
+<g stroke="#8E9A93" stroke-width="3">
+<line x1="360" y1="190" x2="180" y2="300"/><line x1="360" y1="190" x2="360" y2="300"/><line x1="360" y1="190" x2="540" y2="300"/>
+<line x1="180" y1="376" x2="60" y2="520"/><line x1="180" y1="376" x2="135" y2="520"/><line x1="180" y1="376" x2="210" y2="520"/>
+<line x1="360" y1="376" x2="285" y2="520"/><line x1="360" y1="376" x2="360" y2="520"/><line x1="360" y1="376" x2="435" y2="520"/>
+<line x1="540" y1="376" x2="510" y2="520"/><line x1="540" y1="376" x2="585" y2="520"/><line x1="540" y1="376" x2="660" y2="520"/>
+</g>
+<rect x="280" y="60" width="160" height="130" rx="10" fill="#FBFCFA" stroke="#142019" stroke-width="4"/>
+<circle cx="360" cy="125" r="40" fill="#E8A33D"/>
+<circle cx="346" cy="114" r="5" fill="#142019"/><circle cx="374" cy="114" r="5" fill="#142019"/>
+<path d="M 340 134 Q 360 154 380 134" fill="none" stroke="#142019" stroke-width="5" stroke-linecap="round"/>
+<g fill="#142019">
+<rect x="158" y="300" width="44" height="76" rx="8"/><rect x="338" y="300" width="44" height="76" rx="8"/><rect x="518" y="300" width="44" height="76" rx="8"/>
+<rect x="44" y="520" width="32" height="56" rx="6"/><rect x="119" y="520" width="32" height="56" rx="6"/><rect x="194" y="520" width="32" height="56" rx="6"/>
+<rect x="269" y="520" width="32" height="56" rx="6"/><rect x="344" y="520" width="32" height="56" rx="6"/><rect x="419" y="520" width="32" height="56" rx="6"/>
+<rect x="494" y="520" width="32" height="56" rx="6"/><rect x="569" y="520" width="32" height="56" rx="6"/><rect x="644" y="520" width="32" height="56" rx="6"/>
+</g>
+<g fill="#E8A33D">
+<rect x="164" y="310" width="32" height="52" rx="3"/><rect x="344" y="310" width="32" height="52" rx="3"/><rect x="524" y="310" width="32" height="52" rx="3"/>
+<rect x="49" y="527" width="22" height="38" rx="2"/><rect x="124" y="527" width="22" height="38" rx="2"/><rect x="199" y="527" width="22" height="38" rx="2"/>
+<rect x="274" y="527" width="22" height="38" rx="2"/><rect x="349" y="527" width="22" height="38" rx="2"/><rect x="424" y="527" width="22" height="38" rx="2"/>
+<rect x="499" y="527" width="22" height="38" rx="2"/><rect x="574" y="527" width="22" height="38" rx="2"/><rect x="649" y="527" width="22" height="38" rx="2"/>
+</g>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Cultura</p>
+          <h3>Memes, virais e comunidades de interesse</h3>
+          <p class="grande">meme</p>
+          <p>Palavra criada por Richard Dawkins, em 1976, para ideias que se espalham de pessoa para pessoa.</p>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p4-economia:0" aria-label="Um olho fixado em um anúncio com um alvo, no meio do feed de um celular" viewBox="0 0 720 720">
+<rect x="390" y="110" width="250" height="480" rx="34" fill="#142019"/>
+<rect x="480" y="128" width="70" height="8" rx="4" fill="#3C4842"/>
+<rect x="406" y="150" width="218" height="400" rx="8" fill="#FBFCFA"/>
+<rect x="420" y="166" width="190" height="90" rx="8" fill="#E4EAE3"/>
+<rect x="420" y="270" width="190" height="110" rx="8" fill="#FBFCFA" stroke="#E8A33D" stroke-width="5"/>
+<circle cx="515" cy="325" r="38" fill="#E8A33D"/>
+<circle cx="515" cy="325" r="25" fill="#FBFCFA"/>
+<circle cx="515" cy="325" r="12" fill="#E8A33D"/>
+<rect x="420" y="394" width="190" height="90" rx="8" fill="#E4EAE3"/>
+<rect x="420" y="498" width="190" height="40" rx="8" fill="#E4EAE3"/>
+<line x1="305" y1="345" x2="420" y2="325" stroke="#E8A33D" stroke-width="4" stroke-dasharray="10 8"/>
+<path d="M 50 350 Q 185 225 320 350 Q 185 475 50 350 Z" fill="#FBFCFA" stroke="#142019" stroke-width="6"/>
+<circle cx="185" cy="350" r="58" fill="#8A5A00"/>
+<circle cx="185" cy="350" r="26" fill="#142019"/>
+<circle cx="170" cy="334" r="9" fill="#FBFCFA"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Trabalho e economia</p>
+          <h3>A atenção vira mercadoria</h3>
+          <p class="citacao">“Uma riqueza de informação cria uma pobreza de atenção.”</p>
+          <small>Herbert Simon, economista, 1971</small>
+          <ul class="chips"><li>anúncios</li><li>influenciadores</li><li>criadores de conteúdo</li></ul>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="fig">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Uma pessoa no centro, ligada por linhas grossas a quatro amigos próximos e por linhas tracejadas a oito conhecidos mais distantes" style="max-width:24rem">
+            <g class="d-linha-fraca" stroke-width="2" stroke-dasharray="6 5">
+              <line x1="200" y1="150" x2="320" y2="200"/><line x1="200" y1="150" x2="250" y2="270"/><line x1="200" y1="150" x2="150" y2="270"/><line x1="200" y1="150" x2="80" y2="200"/>
+              <line x1="200" y1="150" x2="80" y2="100"/><line x1="200" y1="150" x2="150" y2="30"/><line x1="200" y1="150" x2="250" y2="30"/><line x1="200" y1="150" x2="320" y2="100"/>
+            </g>
+            <g class="d-linha" stroke-width="4.5">
+              <line x1="200" y1="150" x2="200" y2="78"/><line x1="200" y1="150" x2="272" y2="150"/><line x1="200" y1="150" x2="200" y2="222"/><line x1="200" y1="150" x2="128" y2="150"/>
+            </g>
+            <g class="d-muted">
+              <circle cx="320" cy="200" r="8"/><circle cx="250" cy="270" r="8"/><circle cx="150" cy="270" r="8"/><circle cx="80" cy="200" r="8"/>
+              <circle cx="80" cy="100" r="8"/><circle cx="150" cy="30" r="8"/><circle cx="250" cy="30" r="8"/><circle cx="320" cy="100" r="8"/>
+            </g>
+            <g class="d-ink">
+              <circle cx="200" cy="78" r="12"/><circle cx="272" cy="150" r="12"/><circle cx="200" cy="222" r="12"/><circle cx="128" cy="150" r="12"/>
+            </g>
+            <circle class="d-acc-fill" cx="200" cy="150" r="26"/>
+            <text class="d-pac" x="200" y="155" font-size="13" text-anchor="middle">você</text>
+          </svg>
+          <div class="legenda-lacos" aria-hidden="true"><span><i class="forte"></i>laços fortes</span><span><i class="fraco"></i>laços fracos</span></div>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">Relações sociais</p>
+          <h3>A força dos laços fracos</h3>
+          <p>Mark Granovetter (1973): novidades, como uma vaga de emprego, chegam por conhecidos. As redes mantêm centenas de laços fracos.</p>
+        </div>
+      </article>
+    </div>
+    <a class="proxima" href="#parte-5"><span class="rotulo">Parte 5 →</span><span>Toda transformação tecnológica tem custos. Quais foram os das redes?</span></a>
+  </div>
+</section>
+
+<!-- ================= PARTE 5 ================= -->
+<section class="parte" id="parte-5" aria-labelledby="t5">
+  <div class="wrap">
+    <header class="parte-cab">
+      <span class="numeral" aria-hidden="true">5</span>
+      <div>
+        <p class="rotulo">Parte 5 de 5 · 2000–hoje</p>
+        <h2 id="t5">Impactos, problemas e legado para o século XXI</h2>
+        <p class="pergunta-parte">Quais foram os custos dessa transformação?</p>
+      </div>
+    </header>
+    <div class="cenas">
+      <article class="cena">
+        <figure class="quadro escuro"><svg class="ilu" role="img" data-src="p5-privacidade:0" aria-label="A silhueta de uma pessoa feita de pontos de dados sendo escaneada, com um cadeado aberto ao lado" viewBox="0 0 720 720">
+<defs>
+<pattern id="p5priv-dados" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="4" fill="#E8A33D"/></pattern>
+</defs>
+<circle cx="360" cy="230" r="95" fill="#2E3D35"/>
+<path d="M 170 620 Q 170 390 360 390 Q 550 390 550 620 Z" fill="#2E3D35"/>
+<circle cx="360" cy="230" r="95" fill="url(#p5priv-dados)" opacity="0.8"/>
+<path d="M 170 620 Q 170 390 360 390 Q 550 390 550 620 Z" fill="url(#p5priv-dados)" opacity="0.8"/>
+<rect x="140" y="330" width="440" height="40" fill="#E8A33D" opacity="0.15"/>
+<rect x="140" y="362" width="440" height="8" rx="4" fill="#E8A33D"/>
+<path d="M 590 130 V 98 A 30 30 0 0 1 650 98 V 108" fill="none" stroke="#C9D1CB" stroke-width="12" stroke-linecap="round"/>
+<rect x="570" y="128" width="100" height="82" rx="12" fill="#C9D1CB"/>
+<circle cx="620" cy="162" r="10" fill="#142019"/>
+<rect x="616" y="166" width="8" height="20" rx="2" fill="#142019"/>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Privacidade · 2013–2019</p>
+          <h3>Os dados pessoais ganham valor</h3>
+          <p>Snowden revela vigilância em massa (2013). A Cambridge Analytica usa dados de até 87 milhões de perfis do Facebook (2018).</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p5-desinformacao:0" aria-label="Duas árvores de compartilhamento: a notícia falsa se ramifica para dezenas de pessoas, a verdadeira para poucas" viewBox="0 0 720 720">
+<g stroke="#E8A33D" stroke-width="2" opacity="0.8">
+<line x1="410" y1="70" x2="590" y2="58"/><line x1="410" y1="70" x2="590" y2="82"/>
+<line x1="410" y1="110" x2="590" y2="98"/><line x1="410" y1="110" x2="590" y2="122"/>
+<line x1="410" y1="150" x2="590" y2="138"/><line x1="410" y1="150" x2="590" y2="162"/>
+<line x1="410" y1="190" x2="590" y2="178"/><line x1="410" y1="190" x2="590" y2="202"/>
+<line x1="410" y1="230" x2="590" y2="218"/><line x1="410" y1="230" x2="590" y2="242"/>
+<line x1="410" y1="270" x2="590" y2="258"/><line x1="410" y1="270" x2="590" y2="282"/>
+<line x1="410" y1="310" x2="590" y2="298"/><line x1="410" y1="310" x2="590" y2="322"/>
+<line x1="410" y1="350" x2="590" y2="338"/><line x1="410" y1="350" x2="590" y2="362"/>
+<line x1="410" y1="390" x2="590" y2="378"/><line x1="410" y1="390" x2="590" y2="402"/>
+</g>
+<g stroke="#E8A33D" stroke-width="3">
+<line x1="90" y1="230" x2="250" y2="130"/><line x1="90" y1="230" x2="250" y2="230"/><line x1="90" y1="230" x2="250" y2="330"/>
+<line x1="250" y1="130" x2="410" y2="70"/><line x1="250" y1="130" x2="410" y2="110"/><line x1="250" y1="130" x2="410" y2="150"/>
+<line x1="250" y1="230" x2="410" y2="190"/><line x1="250" y1="230" x2="410" y2="230"/><line x1="250" y1="230" x2="410" y2="270"/>
+<line x1="250" y1="330" x2="410" y2="310"/><line x1="250" y1="330" x2="410" y2="350"/><line x1="250" y1="330" x2="410" y2="390"/>
+</g>
+<g fill="#E8A33D">
+<circle cx="90" cy="230" r="16"/>
+<circle cx="250" cy="130" r="11"/><circle cx="250" cy="230" r="11"/><circle cx="250" cy="330" r="11"/>
+<circle cx="410" cy="70" r="8"/><circle cx="410" cy="110" r="8"/><circle cx="410" cy="150" r="8"/><circle cx="410" cy="190" r="8"/><circle cx="410" cy="230" r="8"/>
+<circle cx="410" cy="270" r="8"/><circle cx="410" cy="310" r="8"/><circle cx="410" cy="350" r="8"/><circle cx="410" cy="390" r="8"/>
+<circle cx="590" cy="58" r="5"/><circle cx="590" cy="82" r="5"/><circle cx="590" cy="98" r="5"/><circle cx="590" cy="122" r="5"/>
+<circle cx="590" cy="138" r="5"/><circle cx="590" cy="162" r="5"/><circle cx="590" cy="178" r="5"/><circle cx="590" cy="202" r="5"/>
+<circle cx="590" cy="218" r="5"/><circle cx="590" cy="242" r="5"/><circle cx="590" cy="258" r="5"/><circle cx="590" cy="282" r="5"/>
+<circle cx="590" cy="298" r="5"/><circle cx="590" cy="322" r="5"/><circle cx="590" cy="338" r="5"/><circle cx="590" cy="362" r="5"/>
+<circle cx="590" cy="378" r="5"/><circle cx="590" cy="402" r="5"/>
+</g>
+<g stroke="#8E9A93" stroke-width="3">
+<line x1="90" y1="560" x2="250" y2="520"/><line x1="90" y1="560" x2="250" y2="600"/>
+<line x1="250" y1="520" x2="410" y2="510"/><line x1="250" y1="600" x2="410" y2="610"/>
+<line x1="410" y1="510" x2="590" y2="505"/><line x1="410" y1="610" x2="590" y2="615"/>
+</g>
+<circle cx="90" cy="560" r="16" fill="#5F6B65"/>
+<g fill="#8E9A93">
+<circle cx="250" cy="520" r="11"/><circle cx="250" cy="600" r="11"/>
+<circle cx="410" cy="510" r="8"/><circle cx="410" cy="610" r="8"/>
+<circle cx="590" cy="505" r="5"/><circle cx="590" cy="615" r="5"/>
+</g>
+<text x="90" y="196" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">falsa</text><text x="90" y="526" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#142019">verdadeira</text></svg></figure>
+        <div class="cena-texto">
+          <p class="data">Desinformação · 2016–2018</p>
+          <h3>Notícias falsas se espalham mais rápido</h3>
+          <p class="grande">70%</p>
+          <p>mais chance de serem compartilhadas que as verdadeiras.</p>
+          <small>Vosoughi, Roy e Aral (MIT), revista Science, 2018</small>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="quadro claro">
+          <div class="trio">
+            <figure><svg class="ilu" role="img" data-src="p5-comportamento:0" aria-label="Um celular com um feed que continua para baixo sem fim" viewBox="0 0 200 200">
+<rect x="50" y="10" width="100" height="180" rx="16" fill="#142019"/>
+<rect x="58" y="26" width="84" height="148" rx="4" fill="#FBFCFA"/>
+<rect x="66" y="34" width="68" height="30" rx="4" fill="#E4EAE3"/>
+<rect x="66" y="72" width="68" height="30" rx="4" fill="#E4EAE3"/>
+<rect x="66" y="110" width="68" height="30" rx="4" fill="#E4EAE3"/>
+<rect x="66" y="148" width="68" height="26" fill="#E4EAE3"/>
+<line x1="176" y1="50" x2="176" y2="146" stroke="#8A5A00" stroke-width="6" stroke-linecap="round"/>
+<polygon points="164,140 188,140 176,166" fill="#8A5A00"/>
+</svg><figcaption>Rolagem infinita · 2006</figcaption></figure>
+            <figure>
+              <svg viewBox="0 0 200 200" role="img" aria-label="Um coração de curtida com um contador">
+                <circle cx="100" cy="100" r="86" fill="#FBFCFA"/>
+                <path d="M100 152 C 100 152 45 117 45 80 A 28 28 0 0 1 100 68 A 28 28 0 0 1 155 80 C 155 117 100 152 100 152 Z" fill="#8A5A00"/>
+                <rect x="118" y="30" width="66" height="34" rx="17" fill="#142019"/>
+                <text x="151" y="53" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="16" fill="#FBFCFA">+99</text>
+              </svg>
+              <figcaption>Curtir · 2009</figcaption>
+            </figure>
+            <figure><svg class="ilu" role="img" data-src="p5-comportamento:1" aria-label="Uma pessoa dentro de uma bolha, cercada só de opiniões iguais, com opiniões diferentes do lado de fora" viewBox="0 0 200 200">
+<circle cx="14" cy="24" r="8" fill="#2856C2" opacity="0.5"/>
+<polygon points="180,10 194,34 166,34" fill="#5F6B65" opacity="0.5"/>
+<circle cx="186" cy="184" r="8" fill="#2856C2" opacity="0.5"/>
+<rect x="6" y="172" width="16" height="16" fill="#5F6B65" opacity="0.5"/>
+<circle cx="100" cy="100" r="78" fill="#E4EAE3" stroke="#8A5A00" stroke-width="5"/>
+<g fill="#E8A33D">
+<rect x="50" y="60" width="16" height="16"/><rect x="134" y="60" width="16" height="16"/>
+<rect x="50" y="124" width="16" height="16"/><rect x="134" y="124" width="16" height="16"/>
+</g>
+<circle cx="100" cy="92" r="14" fill="#142019"/>
+<path d="M 74 130 Q 100 100 126 130 Z" fill="#142019"/>
+</svg><figcaption>Bolha dos filtros · 2011</figcaption></figure>
+          </div>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">Comportamento · 2006–2011</p>
+          <h3>Plataformas feitas para prender a atenção</h3>
+          <p>O feed nunca acaba, a aprovação vira número e o algoritmo mostra o que você já pensa.</p>
+        </div>
+      </article>
+      <article class="cena inv">
+        <figure class="quadro claro"><svg class="ilu" role="img" data-src="p5-exclusao:0" aria-label="Nove pessoas desenhadas: seis em cor escura, conectadas, e três em cinza, fora da rede" viewBox="0 0 720 720">
+<g fill="#142019">
+<circle cx="160" cy="130" r="40"/><path d="M 94 250 Q 160 150 226 250 Z"/>
+<circle cx="360" cy="130" r="40"/><path d="M 294 250 Q 360 150 426 250 Z"/>
+<circle cx="160" cy="320" r="40"/><path d="M 94 440 Q 160 340 226 440 Z"/>
+<circle cx="360" cy="320" r="40"/><path d="M 294 440 Q 360 340 426 440 Z"/>
+<circle cx="160" cy="510" r="40"/><path d="M 94 630 Q 160 530 226 630 Z"/>
+<circle cx="360" cy="510" r="40"/><path d="M 294 630 Q 360 530 426 630 Z"/>
+</g>
+<g fill="#C9D1CB">
+<circle cx="560" cy="130" r="40"/><path d="M 494 250 Q 560 150 626 250 Z"/>
+<circle cx="560" cy="320" r="40"/><path d="M 494 440 Q 560 340 626 440 Z"/>
+<circle cx="560" cy="510" r="40"/><path d="M 494 630 Q 560 530 626 630 Z"/>
+</g>
+</svg></figure>
+        <div class="cena-texto">
+          <p class="data">Exclusão digital · 2023</p>
+          <h3>Nem todo mundo entrou na rede</h3>
+          <p class="grande">1 em 3</p>
+          <p>pessoas no mundo não usava a Internet em 2023: cerca de 2,6 bilhões (UIT).</p>
+        </div>
+      </article>
+      <article class="cena">
+        <div class="cena-texto" style="grid-column:1 / -1">
+          <p class="data">Regulação · 2014–2020</p>
+          <h3>As leis tentam acompanhar a tecnologia</h3>
+          <ol class="trilho" style="--n:3;margin-top:.75rem">
+            <li><b>2014</b><strong>Marco Civil da Internet</strong><span>a “Constituição da Internet”</span></li>
+            <li><b>2018</b><strong>GDPR</strong><span>proteção de dados na Europa</span></li>
+            <li><b>2018</b><strong>LGPD</strong><span>em vigor no Brasil desde 2020</span></li>
+          </ol>
+        </div>
+      </article>
+      <article class="cena">
+        <figure class="fig" id="grafico-usuarios">
+          <p class="fig-titulo">Usuários de Internet no mundo, em bilhões de pessoas</p>
+          <div class="graf">
+            <div class="graf-eixo" aria-hidden="true">
+              <span style="bottom:0%">0</span><span style="bottom:calc(1 / 6 * 100%)">1</span><span style="bottom:calc(2 / 6 * 100%)">2</span><span style="bottom:calc(3 / 6 * 100%)">3</span><span style="bottom:calc(4 / 6 * 100%)">4</span><span style="bottom:calc(5 / 6 * 100%)">5</span><span style="bottom:100%">6</span>
+            </div>
+            <div class="graf-area">
+              <div class="graf-grade" aria-hidden="true">
+                <span class="zero" style="bottom:0%"></span><span style="bottom:calc(1 / 6 * 100%)"></span><span style="bottom:calc(2 / 6 * 100%)"></span><span style="bottom:calc(3 / 6 * 100%)"></span><span style="bottom:calc(4 / 6 * 100%)"></span><span style="bottom:calc(5 / 6 * 100%)"></span><span style="bottom:100%"></span>
+              </div>
+              <div class="graf-barras">
+                <button class="graf-slot" type="button" data-ano="1995" data-texto="16 milhões" aria-label="1995: cerca de 16 milhões de usuários"><span class="graf-rot">16 mi</span><span class="graf-barra" style="--v:0.016"></span></button>
+                <button class="graf-slot" type="button" data-ano="2000" data-texto="361 milhões" aria-label="2000: cerca de 361 milhões de usuários"><span class="graf-barra" style="--v:0.361"></span></button>
+                <button class="graf-slot" type="button" data-ano="2005" data-texto="1,0 bilhão" aria-label="2005: cerca de 1,0 bilhão de usuários"><span class="graf-barra" style="--v:1.0"></span></button>
+                <button class="graf-slot" type="button" data-ano="2010" data-texto="2,0 bilhões" aria-label="2010: cerca de 2,0 bilhões de usuários"><span class="graf-barra" style="--v:2.0"></span></button>
+                <button class="graf-slot" type="button" data-ano="2015" data-texto="3,2 bilhões" aria-label="2015: cerca de 3,2 bilhões de usuários"><span class="graf-barra" style="--v:3.2"></span></button>
+                <button class="graf-slot" type="button" data-ano="2019" data-texto="4,1 bilhões" aria-label="2019: cerca de 4,1 bilhões de usuários"><span class="graf-barra" style="--v:4.1"></span></button>
+                <button class="graf-slot" type="button" data-ano="2023" data-texto="5,4 bilhões" aria-label="2023: cerca de 5,4 bilhões de usuários"><span class="graf-rot">5,4 bi</span><span class="graf-barra" style="--v:5.4"></span></button>
+              </div>
+              <div class="dica" id="dica" hidden><strong id="dica-valor"></strong><span id="dica-ano"></span></div>
+            </div>
+            <div class="graf-anos" aria-hidden="true"><span>1995</span><span>2000</span><span>2005</span><span>2010</span><span>2015</span><span>2019</span><span>2023</span></div>
+          </div>
+          <p class="fonte-dados">Fontes: Internet World Stats (1995 e 2000) e UIT (2005 a 2023).</p>
+          <details class="tabela-dados">
+            <summary>Ver os dados em tabela</summary>
+            <div class="tabela-wrap">
+              <table>
+                <thead><tr><th scope="col">Ano</th><th scope="col">Usuários</th><th scope="col">Fonte</th></tr></thead>
+                <tbody>
+                  <tr><td>1995</td><td>16 milhões</td><td>Internet World Stats</td></tr>
+                  <tr><td>2000</td><td>361 milhões</td><td>Internet World Stats</td></tr>
+                  <tr><td>2005</td><td>1,0 bilhão</td><td>UIT</td></tr>
+                  <tr><td>2010</td><td>2,0 bilhões</td><td>UIT</td></tr>
+                  <tr><td>2015</td><td>3,2 bilhões</td><td>UIT</td></tr>
+                  <tr><td>2019</td><td>4,1 bilhões</td><td>UIT</td></tr>
+                  <tr><td>2023</td><td>5,4 bilhões</td><td>UIT</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </figure>
+        <div class="cena-texto">
+          <p class="data">Legado · 1995–2023</p>
+          <h3>Uma sociedade conectada o tempo todo</h3>
+          <p class="grande">67%</p>
+          <p>do mundo on-line em 2023. A rede virou infraestrutura, como energia e transporte.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="conclusao" aria-labelledby="conclusao-titulo">
+  <div class="wrap">
+    <p class="rotulo">Conclusão</p>
+    <h2 id="conclusao-titulo">A Internet não foi apenas uma nova tecnologia. Ela mudou a forma como a sociedade produz, compartilha e consome informação.</h2>
+    <p>E as redes sociais levaram essa transformação para dentro das relações humanas.</p>
+    <div class="debate">
+      <p class="rotulo">Para debater</p>
+      <p>A tecnologia muda a sociedade, ou a sociedade muda a tecnologia?</p>
+    </div>
+  </div>
+</section>
+
+<section class="referencias" aria-labelledby="ref-titulo">
+  <div class="wrap">
+    <p class="rotulo">Fontes</p>
+    <h2 id="ref-titulo">Referências</h2>
+    <ul class="refs">
+      <li>ABBATE, Janet. <strong>Inventing the Internet</strong>. Cambridge: MIT Press, 1999.</li>
+      <li>BOYD, danah; ELLISON, Nicole. Social network sites: definition, history, and scholarship. <strong>Journal of Computer-Mediated Communication</strong>, v. 13, n. 1, 2007.</li>
+      <li>CASTELLS, Manuel. <strong>A sociedade em rede</strong>. São Paulo: Paz e Terra, 1999.</li>
+      <li>CASTELLS, Manuel. <strong>A galáxia da Internet</strong>. Rio de Janeiro: Zahar, 2003.</li>
+      <li>GRANOVETTER, Mark. The strength of weak ties. <strong>American Journal of Sociology</strong>, v. 78, n. 6, 1973.</li>
+      <li>LEINER, Barry M. et al. <strong>A brief history of the Internet</strong>. Internet Society, 1997. Disponível em: <a href="https://www.internetsociety.org/internet/history-internet/brief-history-internet/" target="_blank" rel="noopener">internetsociety.org</a>.</li>
+      <li>MILGRAM, Stanley. The small-world problem. <strong>Psychology Today</strong>, v. 1, n. 1, 1967.</li>
+      <li>SIMON, Herbert A. Designing organizations for an information-rich world. Baltimore: <strong>Johns Hopkins Press</strong>, 1971.</li>
+      <li>UIT. <strong>Measuring digital development: facts and figures 2023</strong>. Genebra: ITU, 2023.</li>
+      <li>VOSOUGHI, Soroush; ROY, Deb; ARAL, Sinan. The spread of true and false news online. <strong>Science</strong>, v. 359, n. 6380, 2018.</li>
+      <li>ZUBOFF, Shoshana. <strong>The age of surveillance capitalism</strong>. Nova York: PublicAffairs, 2019.</li>
+      <li>CETIC.BR. <strong>Pesquisa TIC Domicílios</strong>. São Paulo: CGI.br, publicação anual. Disponível em: <a href="https://cetic.br/" target="_blank" rel="noopener">cetic.br</a>.</li>
+    </ul>
+    <p class="fonte-dados" style="margin-top:2rem">Ilustrações feitas para este trabalho. Logotipos: Simple Icons (CC0); as marcas pertencem aos seus donos.</p>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <span>Internet e as transformações do final do século XX · O surgimento das redes sociais</span>
+    <span>História da Ciência e Tecnologia (JCRHCTC – SUP.18201) · ADS · IFSP Jacareí</span>
+  </div>
+</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Parte atual destacada na barra superior */
+  var links = {};
+  document.querySelectorAll(".nav-partes a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  var partes = Array.prototype.slice.call(document.querySelectorAll(".parte"));
+  function marcar(id) {
+    Object.keys(links).forEach(function (k) {
+      if (k === id) links[k].setAttribute("aria-current", "true"); else links[k].removeAttribute("aria-current");
+    });
+  }
+  if ("IntersectionObserver" in window) {
+    var visiveis = {};
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { visiveis[e.target.id] = e.isIntersecting; });
+      var atual = null;
+      partes.forEach(function (p) { if (visiveis[p.id] && !atual) atual = p.id; });
+      marcar(atual);
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    partes.forEach(function (p) { obs.observe(p); });
+  }
+
+  /* Dica do gráfico: passar o mouse ou focar uma barra */
+  var area = document.querySelector(".graf-area");
+  var dica = document.getElementById("dica");
+  var dicaValor = document.getElementById("dica-valor");
+  var dicaAno = document.getElementById("dica-ano");
+  if (area && dica) {
+    function mostrar(slot) {
+      var barra = slot.querySelector(".graf-barra");
+      var a = area.getBoundingClientRect();
+      var b = barra.getBoundingClientRect();
+      dicaValor.textContent = slot.getAttribute("data-texto");
+      dicaAno.textContent = slot.getAttribute("data-ano");
+      dica.hidden = false;
+      var meio = b.left + b.width / 2 - a.left;
+      var metade = dica.offsetWidth / 2;
+      var x = Math.max(metade, Math.min(a.width - metade, meio));
+      var rot = slot.querySelector(".graf-rot");
+      var topo = rot ? rot.getBoundingClientRect().top : b.top;
+      dica.style.left = x + "px";
+      dica.style.top = (topo - a.top) + "px";
+    }
+    function esconder() { dica.hidden = true; }
+    area.querySelectorAll(".graf-slot").forEach(function (slot) {
+      slot.addEventListener("pointerenter", function () { mostrar(slot); });
+      slot.addEventListener("pointerleave", esconder);
+      slot.addEventListener("focus", function () { mostrar(slot); });
+      slot.addEventListener("blur", esconder);
+      slot.addEventListener("click", function () { mostrar(slot); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
