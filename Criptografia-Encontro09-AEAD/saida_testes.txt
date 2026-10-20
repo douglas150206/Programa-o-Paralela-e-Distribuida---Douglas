@@ -1,0 +1,28 @@
+== Tarefa 1: cifração única e abertura válida ==
+AAD   :  7 bytes  01 00 11 00 00 00 09
+nonce : 12 bytes  00 00 00 07 00 00 00 00 00 00 00 09
+C     :  8 bytes
+T     : 16 bytes
+C||T  : 24 bytes
+registro A||N||C||T: 43 bytes (a chave fica fora)
+mensagem recuperada: nota=8.5
+
+== Tarefa 2: adulteração (um campo por teste) ==
+primeiro byte de C     -> InvalidTag (nenhum texto candidato usado)
+último byte de T       -> InvalidTag (nenhum texto candidato usado)
+último byte do AAD     -> InvalidTag (nenhum texto candidato usado)
+último byte do nonce   -> InvalidTag (nenhum texto candidato usado)
+chave errada           -> InvalidTag (nenhum texto candidato usado)
+
+== Tarefa 4: a biblioteca não implementa política de repetição ==
+decrypt do registro intacto, 1a vez -> sucesso
+decrypt do registro intacto, 2a vez -> sucesso
+
+== Tarefa 5: controle de repetição após autenticação ==
+original, usuário esperado 17   -> aceito: nota=8.5
+mesmo registro de novo          -> rejeitado: repetição
+registro do 17 usado para o 18  -> rejeitado: contexto (usuário diferente do esperado)
+forjado anunciando sequência 10 -> rejeitado: etiqueta inválida
+estado após a falha             -> [(17, 9)] (inalterado)
+
+Todos os testes passaram.
