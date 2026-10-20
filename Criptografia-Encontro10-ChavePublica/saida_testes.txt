@@ -1,0 +1,21 @@
+test_3_substituicao_de_uma_publica (__main__.ConexaoComMallory.test_3_substituicao_de_uma_publica)
+Tarefa 3: Alice recebe a pública de Mallory; Mallory abre, Bob não. ... ok
+test_4_intermediario_nos_dois_sentidos (__main__.ConexaoComMallory.test_4_intermediario_nos_dois_sentidos)
+Tarefa 4: Mallory abre na conexão com Alice e recifra na conexão com Bob. ... ok
+test_1_acordo_e_exportacao (__main__.ConexaoCorreta.test_1_acordo_e_exportacao)
+Tarefa 1: os dois acordos têm 32 bytes e coincidem; públicas com 32 bytes. ... ok
+test_2_derivacao_e_cifracao (__main__.ConexaoCorreta.test_2_derivacao_e_cifracao)
+Tarefa 2: mesma HKDF dos dois lados; uma cifração e uma abertura. ... ok
+test_5_adulteracao_e_contexto (__main__.ConexaoCorreta.test_5_adulteracao_e_contexto)
+Tarefa 5: byte alterado e contexto diferente levam a InvalidTag. ... ok
+test_exemplo_4 (__main__.ConferenciaDasContas.test_exemplo_4)
+Questão 5: Mallory compartilha 18 com Alice e 7 com Bob. ... ok
+test_questao_3 (__main__.ConferenciaDasContas.test_questao_3)
+Questão 3: 7^5 mod 23 = 17. ... ok
+test_questao_4 (__main__.ConferenciaDasContas.test_questao_4)
+Questão 4: A = 4, B = 10 e os dois lados obtêm 18. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.018s
+
+OK
